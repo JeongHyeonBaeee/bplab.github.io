@@ -568,35 +568,38 @@
       background: #ffffff;
       border: 1px solid var(--border-color);
       border-radius: 10px;
-      padding: 1.75rem 2rem;
-      margin-bottom: 1.25rem;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 1.75rem;
+      gap: 2.25rem;
       align-items: center;
     }
     .notice-post.no-image {
       grid-template-columns: 1fr;
     }
+    .notice-left {
+      min-width: 260px;
+    }
     .notice-post-header {
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.85rem;
     }
     .notice-post-title {
-      font-size: 1.18rem;
+      font-size: 1.22rem;
       font-weight: 700;
-      margin: 0.4rem 0 0.25rem;
+      margin: 0.45rem 0 0.25rem;
       line-height: 1.4;
     }
-    .notice-post-date { font-size: 0.84rem; color: var(--text-muted); }
+    .notice-post-date { font-size: 0.85rem; color: var(--text-muted); }
     .notice-post-body {
-      font-size: 0.93rem;
+      font-size: 0.95rem;
       color: #374151;
-      line-height: 1.7;
+      line-height: 1.75;
     }
     .notice-images {
       display: flex;
       flex-wrap: nowrap;
-      gap: 0.65rem;
+      gap: 0.85rem;
       align-items: center;
       justify-content: flex-end;
     }
@@ -604,7 +607,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 175px;
+      height: 320px;
       border-radius: 6px;
       overflow: hidden;
       border: 1px solid #e5e7eb;
@@ -614,15 +617,14 @@
     .notice-images img {
       height: 100%;
       width: auto;
-      max-width: 240px;
+      max-width: 420px;
       object-fit: contain;
       display: block;
       transition: transform 0.2s;
     }
     .notice-images img:hover {
-      transform: scale(1.03);
+      transform: scale(1.02);
     }
-
     /* Admin Generator Panels */
     .writer-panel {
       display: none;
@@ -662,7 +664,7 @@
     /* Contact Tab */
     .contact-grid {
       display: grid;
-      grid-template-columns: 1.2fr 1.0fr;
+      grid-template-columns: 1.4fr 1.0fr;
       gap: 2.5rem;
       align-items: start;
     }
@@ -1320,21 +1322,26 @@
         </div>
       `).join('');
 
-      noticeList.innerHTML = newsItems.map(n => `
-        <article class="notice-post">
-          <div class="notice-post-header">
-            <span class="badge-cat">${n.category}</span>
-            <span class="notice-post-date">${n.date}</span>
-            <h3 class="notice-post-title">${n.title}</h3>
-          </div>
-          <div class="notice-post-body">${n.body}</div>
-          ${n.images && n.images.length ? `
-            <div class="notice-images">
-              ${n.images.map(img => `<a href="${img}" target="_blank" title="클릭하여 원본 크기로 보기"><img src="${img}" alt="News attachment" onerror="this.parentElement.style.display='none'"></a>`).join('')}
+noticeList.innerHTML = newsItems.map(n => {
+        const hasImg = n.images && n.images.length > 0;
+        return `
+          <article class="notice-post ${hasImg ? '' : 'no-image'}">
+            <div class="notice-left">
+              <div class="notice-post-header">
+                <span class="badge-cat">${n.category}</span>
+                <span class="notice-post-date">${n.date}</span>
+                <h3 class="notice-post-title">${n.title}</h3>
+              </div>
+              <div class="notice-post-body">${n.body}</div>
             </div>
-          ` : ''}
-        </article>
-      `).join('');
+            ${hasImg ? `
+              <div class="notice-images">
+                ${n.images.map(img => `<a href="${img}" target="_blank" title="클릭하여 원본 크기로 보기"><img src="${img}" alt="News attachment" onerror="this.parentElement.style.display='none'"></a>`).join('')}
+              </div>
+            ` : ''}
+          </article>
+        `;
+      }).join('');
     }
 
     function toggleWriter() {
