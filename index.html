@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biophotonics Lab | Kyung Hee University</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --khu-burgundy: #780205;
+      --khu-dark: #4f0103;
+      --khu-gold: #d3ac52;
+      --bg-light: #f8f9fa;
+      --text-main: #1f2937;
+      --text-muted: #6b7280;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      line-height: 1.65;
+      background-color: #ffffff;
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .nav-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--khu-burgundy);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .logo span { color: var(--khu-gold); }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--khu-burgundy); }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #2b0405 0%, var(--khu-burgundy) 60%, #420a0c 100%);
+      color: #ffffff;
+      padding: 6.5rem 1.5rem;
+      text-align: center;
+    }
+    .hero-inner { max-width: 860px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      border: 1px solid rgba(211, 172, 82, 0.5);
+      border-radius: 999px;
+      color: var(--khu-gold);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    .hero h1 span { color: var(--khu-gold); }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: #e5e7eb;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+    .hero-desc {
+      font-size: 1rem;
+      color: #d1d5db;
+      max-width: 740px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+    }
+    .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      padding: 0.85rem 1.8rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--khu-gold);
+      color: #1f1600;
+    }
+    .btn-primary:hover { background: #e0bd6b; transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #ffffff;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+    /* Sections */
+    section { padding: 5rem 1.5rem; }
+    .bg-gray { background-color: var(--bg-light); }
+    .container { max-width: 1140px; margin: 0 auto; }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--khu-burgundy);
+      margin-bottom: 0.5rem;
+    }
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* Research Cards */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 2rem;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+      border-color: var(--khu-gold);
+    }
+    .card-num {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--khu-gold);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.85rem;
+      color: var(--text-main);
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Publications */
+    .pub-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .pub-item {
+      background: #ffffff;
+      border-left: 4px solid var(--khu-burgundy);
+      padding: 1.5rem;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .pub-year {
+      display: inline-block;
+      background: #fdf2f2;
+      color: var(--khu-burgundy);
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+    .pub-title { font-weight: 600; font-size: 1.05rem; margin-bottom: 0.35rem; }
+    .pub-authors { font-size: 0.9rem; color: var(--text-muted); }
+    .pub-journal { font-size: 0.9rem; font-style: italic; color: var(--khu-burgundy); margin-top: 0.25rem; }
+
+    /* Members */
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .member-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 1.75rem;
+      text-align: center;
+    }
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #f3f4f6;
+      color: var(--khu-burgundy);
+      font-weight: 700;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      border: 2px solid var(--khu-gold);
+    }
+    .member-role {
+      font-size: 0.8rem;
+      color: var(--khu-burgundy);
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+    .member-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .member-topic { font-size: 0.88rem; color: var(--text-muted); }
+
+    /* Footer */
+    footer {
+      background: #18181b;
+      color: #d4d4d8;
+      padding: 4rem 1.5rem 2.5rem;
+    }
+    .footer-grid {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid #27272a;
+    }
+    .footer-title { color: #ffffff; font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; }
+    .footer-text { font-size: 0.92rem; color: #a1a1aa; line-height: 1.7; }
+    .copyright {
+      max-width: 1140px;
+      margin: 1.5rem auto 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #71717a;
+    }
+
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .hero { padding: 4.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">Biophotonics <span>LAB</span></a>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#members">Members</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Department of Biomedical Engineering · Kyung Hee University</div>
+      <h1>Biophotonics <span>Lab</span></h1>
+      <p class="hero-sub">Nanoscale Plasmonics, SERS Biosensing &amp; Optical Neural Interfaces</p>
+      <p class="hero-desc">
+        We harness the unique optical properties of nanoscale plasmonic materials and structures to develop integrated platforms for ultrasensitive biosensing, medical diagnostics, bioimaging, and neural engineering.
+      </p>
+      <div class="btn-group">
+        <a href="#research" class="btn btn-primary">Explore Research</a>
+        <a href="#contact" class="btn btn-outline">Join Our Lab</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Areas -->
+  <section id="research">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Research Areas</h2>
+        <p class="section-subtitle">Multidisciplinary integration of nanophotonics, biomedical engineering, and electronics</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <span class="card-num">01 / NANOPLASMONICS</span>
+          <h3>Plasmonic Nanostructures &amp; Self-Assembly</h3>
+          <p>Design, electromagnetic simulation (FDTD), and convective self-assembly (CSA) fabrication of high-density metallic nanogap arrays for reproducible localized hotspot generation.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">02 / BIOSENSING &amp; DIAGNOSTICS</span>
+          <h3>SERS &amp; SPR Immunoassay Platforms</h3>
+          <p>Ultrasensitive surface-enhanced Raman scattering (SERS) sandwich biosensors for trace biomarker profiling and early clinical screening of sepsis and inflammatory diseases.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">03 / BIOIMAGING &amp; NEURAL</span>
+          <h3>Nanoscale Bioimaging &amp; Neural Interfaces</h3>
+          <p>High-resolution plasmonic bioimaging and optical neural interface systems bridging photonics and electrophysiology for real-time cellular monitoring.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Selected Publications -->
+  <section id="publications" class="bg-gray">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Selected Publications</h2>
+        <p class="section-subtitle">Recent peer-reviewed journal articles and conference proceedings</p>
+      </div>
+      <div class="pub-list">
+        <div class="pub-item">
+          <span class="pub-year">2026</span>
+          <div class="pub-title">Convective Self-Assembled Plasmonic Gold Nanoparticle Arrays for Sensitive SERS Immunoassay of Sepsis Biomarker IL-6</div>
+          <div class="pub-authors">Biophotonics Lab, Department of Biomedical Engineering, Kyung Hee University</div>
+          <div class="pub-journal">In Preparation / International Conference Proceedings</div>
+        </div>
+        <div class="pub-item">
+          <span class="pub-year">2025</span>
+          <div class="pub-title">Plasmonic Nanogap Engineering for Reproducible Surface-Enhanced Raman Spectroscopy Biosensing</div>
+          <div class="pub-authors">K. M. Byun et al.</div>
+          <div class="pub-journal">Biophotonics Lab Publications (Update your full list here)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Members -->
+  <section id="members">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Members</h2>
+        <p class="section-subtitle">Principal Investigator and Researchers at Biophotonics Lab</p>
+      </div>
+      <div class="member-grid">
+        <div class="member-card">
+          <div class="avatar">PI</div>
+          <div class="member-role">Principal Investigator</div>
+          <div class="member-name">Prof. Kyung Min Byun</div>
+          <div class="member-topic">Department of Biomedical Engineering<br>Kyung Hee University</div>
+        </div>
+        <div class="member-card">
+          <div class="avatar">MS</div>
+          <div class="member-role">Graduate Researcher</div>
+          <div class="member-name">Junghyun Bae</div>
+          <div class="member-topic">SERS Sandwich Immunoassay &amp; Plasmonic Nanostructures</div>
+        </div>
+        <div class="member-card">
+          <div class="avatar">+</div>
+          <div class="member-role">Open Positions</div>
+          <div class="member-name">Join Our Team</div>
+          <div class="member-topic">M.S. / Ph.D. Candidates &amp; Undergraduate Interns Welcome</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer / Contact -->
+  <footer id="contact">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-title">Biophotonics Lab (바이오포토닉스 연구실)</div>
+        <p class="footer-text">
+          Department of Biomedical Engineering<br>
+          Kyung Hee University (Global Campus)<br>
+          Room 710, College of Electronics and Information
+        </p>
+      </div>
+      <div>
+        <div class="footer-title">Location &amp; Contact</div>
+        <p class="footer-text">
+          1732 Deogyeong-daero, Giheung-gu, Yongin-si,<br>
+          Gyeonggi-do 17104, Republic of Korea<br>
+          (17104) 경기도 용인시 기흥구 덕영대로 1732 경희대학교 전자정보대학관 710호
+        </p>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2026 Biophotonics Lab, Kyung Hee University. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
