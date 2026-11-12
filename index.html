@@ -1313,7 +1313,7 @@
       const homePreview = document.getElementById('homeNoticePreview');
       const noticeList = document.getElementById('noticeList');
 
-      homePreview.innerHTML = newsItems.slice(0, 4).map(n => `
+      homePreview.innerHTML = newsItems.slice(0, 3).map(n => `
         <div class="mini-notice-item" onclick="switchTab('news')">
           <div class="mini-notice-meta"><span class="badge-cat">${n.category}</span> ${n.date}</div>
           <div class="mini-notice-title">${n.title}</div>
