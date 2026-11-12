@@ -564,40 +564,64 @@
       cursor: pointer;
     }
     .btn-write:hover { background: var(--khu-dark); }
-    .notice-post {
+.notice-post {
       background: #ffffff;
       border: 1px solid var(--border-color);
       border-radius: 10px;
-      padding: 2rem;
-      margin-bottom: 1.5rem;
+      padding: 1.75rem 2rem;
+      margin-bottom: 1.25rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.75rem;
+      align-items: center;
+    }
+    .notice-post.no-image {
+      grid-template-columns: 1fr;
     }
     .notice-post-header {
-      border-bottom: 1px solid #f3f4f6;
-      padding-bottom: 1rem;
-      margin-bottom: 1.25rem;
+      margin-bottom: 0.7rem;
     }
     .notice-post-title {
-      font-size: 1.28rem;
+      font-size: 1.18rem;
       font-weight: 700;
-      margin: 0.45rem 0 0.2rem;
+      margin: 0.4rem 0 0.25rem;
+      line-height: 1.4;
     }
-    .notice-post-date { font-size: 0.85rem; color: var(--text-muted); }
-    .notice-post-body { font-size: 0.96rem; color: #374151; line-height: 1.75; }
+    .notice-post-date { font-size: 0.84rem; color: var(--text-muted); }
+    .notice-post-body {
+      font-size: 0.93rem;
+      color: #374151;
+      line-height: 1.7;
+    }
     .notice-images {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.25rem;
-      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 0.65rem;
+      align-items: center;
+      justify-content: flex-end;
     }
-    .notice-images a { display: block; }
-    .notice-images img {
-      width: 100%;
+    .notice-images a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 175px;
       border-radius: 6px;
+      overflow: hidden;
       border: 1px solid #e5e7eb;
-      object-fit: cover;
-      transition: opacity 0.2s;
+      background: #f9fafb;
+      flex-shrink: 0;
     }
-    .notice-images img:hover { opacity: 0.92; }
+    .notice-images img {
+      height: 100%;
+      width: auto;
+      max-width: 240px;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.2s;
+    }
+    .notice-images img:hover {
+      transform: scale(1.03);
+    }
 
     /* Admin Generator Panels */
     .writer-panel {
