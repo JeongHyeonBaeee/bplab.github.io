@@ -536,6 +536,14 @@
       border-bottom: 1px solid #eceef1;
     }
     .alumni-list li:last-child { border-bottom: none; }
+    .alumni-list-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 1.5rem;
+    }
+    .alumni-list-2col li:nth-last-child(2):nth-child(odd) {
+      border-bottom: none;
+    }
     .alumni-note {
       margin-top: 0.85rem;
       font-size: 0.82rem;
