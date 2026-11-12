@@ -767,6 +767,7 @@
               <button class="dot active" onclick="goSlide(0)"></button>
               <button class="dot" onclick="goSlide(1)"></button>
               <button class="dot" onclick="goSlide(2)"></button>
+              <button class="dot" onclick="goSlide(3)"></button>
             </div>
           </div>
         </div>
@@ -1046,24 +1047,31 @@
     </div>
 
     <!-- ================= 6. CONTACT TAB ================= -->
+<!-- ================= 6. CONTACT TAB ================= -->
     <div id="tab-contact" class="tab-page">
-      <div class="contact-card" style="display:flex; flex-direction:column; justify-content:center;">
-  <div class="contact-item">
-    <div class="contact-label">Laboratory</div>
-    <p><strong>Biophotonics Lab (바이오포토닉스 연구실)</strong><br>
-    Department of Biomedical Engineering, Kyung Hee University</p>
-  </div>
-  <div class="contact-item">
-    <div class="contact-label">Location</div>
-    <p><strong>Room 710</strong> (PI Office: Rm 709), College of Electronics and Information<br>
-    1732 Deogyeong-daero, Giheung-gu, Yongin-si, Gyeonggi-do 17104, Korea<br>
-    <span style="color:#6b7280; font-size:0.88rem;">(17104) 경기도 용인시 기흥구 덕영대로 1732 경희대학교 전자정보대학관 710호</span></p>
-  </div>
-  <div class="contact-item">
-    <div class="contact-label">Contact</div>
-    <p>Prof. Kyung Min Byun · <a href="mailto:kmbyun@khu.ac.kr" style="color:#780205; font-weight:600; text-decoration:none;">kmbyun@khu.ac.kr</a></p>
-  </div>
-</div>
+      <div class="page-banner">
+        <h2>Contact</h2>
+        <p>Location and Contact Information</p>
+      </div>
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-card" style="display:flex; flex-direction:column; justify-content:center;">
+            <div class="contact-item">
+              <div class="contact-label">Laboratory</div>
+              <p><strong>Biophotonics Lab (바이오포토닉스 연구실)</strong><br>
+              Department of Biomedical Engineering, Kyung Hee University</p>
+            </div>
+            <div class="contact-item">
+              <div class="contact-label">Location</div>
+              <p><strong>Room 710</strong> (PI Office: Rm 709), College of Electronics and Information<br>
+              1732 Deogyeong-daero, Giheung-gu, Yongin-si, Gyeonggi-do 17104, Korea<br>
+              <span style="color:#6b7280; font-size:0.88rem;">(17104) 경기도 용인시 기흥구 덕영대로 1732 경희대학교 전자정보대학관 710호</span></p>
+            </div>
+            <div class="contact-item">
+              <div class="contact-label">Contact</div>
+              <p>Prof. Kyung Min Byun · <a href="mailto:kmbyun@khu.ac.kr" style="color:#780205; font-weight:600; text-decoration:none;">kmbyun@khu.ac.kr</a></p>
+            </div>
+          </div>
 
           <div>
             <iframe
@@ -1226,24 +1234,56 @@
 
     /* ================= NEWS DATA & RENDER ================= */
     const newsItems = [
+    {
+        "category": "Conference",
+        "date": "2026. 11. 04. - 2026. 11. 07.",
+        "title": "제13차 아시아-태평양 의용생체공학 학술대회 APCMBE 2026 (Daegu, Korea)",
+        "body": "본 연구실 소속 박인기, 배정현 학부연구생이 2026년 11월 4일부터 7일까지 대구 EXCO에서 개최된 제13차 아시아-태평양 의용생체공학 학술대회(APCMBE 2026)에 참가하여 포스터 발표를 성공적으로 마쳤습니다. In Gi Park and Jeong Hyeon Bae (Undergraduate Students) successfully presented posters at the 13th IFMBE Asian Pacific Conference on Medical and Biological Engineering (APCMBE 2026) held at EXCO, Daegu (November 4–7, 2026).",
+        "images": [
+          "apcmbe.jpg",
+          "poster-5.png",
+          "poster-6.png"
+        ]
+      },
       {
         category: "Award",
         date: "2026",
         title: "2026 한국센서학회 추계학술대회 — Joyeta Mazumder 우수논문상 수상",
         body: "본 연구실 석사과정 Joyeta Mazumder 학생이 2026 한국센서학회 추계학술대회에서 우수논문상을 수상하였습니다. 진심으로 축하합니다! (Congratulations to Joyeta Mazumder for receiving the Outstanding Paper Award!)",
         images: ["notice-award-1.jpg", "notice-award-2.jpg"]
-      }
-{
-  "category": "Conference",
-  "date": "2026. 05. 07. - 2026. 05. 09.",
-  "title": "2026년도 제67회 대한의용생체공학회 춘계학술대회 KOSOMBE 2026 Spring Conference (Jeju, Korea)",
-  "body": "본 연구실 소속 박인기 학부연구생이 2026년 5월 7일부터 9일까지 제주신화월드리조트에서 개최된 제67회 대한의용생체공학회 춘계학술대회(KOSOMBE 2026)에 참가하여 포스터 발표를 성공적으로 마쳤습니다. In Gi Park (Undergraduate Student) successfully presented a poster at the 67th KOSOMBE Spring Conference held at Jeju Shinhwa World Resort (May 7–9, 2026).",
-  "images": [
-    "slide-3"
-  ]
-},
-        
-    ];
+      },
+      {
+        "category": "Conference",
+        "date": "2026. 09. 16. - 2026. 09. 18.",
+        "title": "2026년 한국센서학회 추계학술대회 2026 Fall Conference of the Korean Sensors Society (Yeosu, Korea)",
+        "body": "본 연구실 소속 손훈국, Joyeta Mazumder 석사과정이 2026년 9월 16일부터 18일까지 여수 디오션리조트에서 개최된 2026년 한국센서학회 추계학술대회에 참가하여 포스터 발표를 성공적으로 마쳤습니다. Hun Guk Son and Joyeta Mazumder (M.S. Students) successfully presented posters at the 2026 Fall Conference of the Korean Sensors Society held at The Ocean Resort, Yeosu (September 16–18, 2026).",
+        "images": [
+          "slide-2.jpg",
+          "poster-2.png",
+          "poster-3.png"
+        ]
+      },
+      {
+        "category": "Conference",
+        "date": "2026. 05. 27. - 2026. 05. 29.",
+        "title": "제33회 광전자 및 광통신 학술대회 COOC 2026 (Busan, Korea)",
+        "body": "본 연구실 소속 손훈국 석사과정이 2026년 5월 27일부터 29일까지 한화 리조트 해운대에서 개최된 제33회 광전자 및 광통신 학술회의(COOC 2026)에 참가하여 포스터 발표를 성공적으로 마쳤습니다. Hun Guk Son (M.S. Student) successfully presented a poster at the 33rd Conference on Optoelectronics and Optical Communications (COOC 2026) held at Hanwha Resort Haeundae, Busan (May 27–29, 2026).",
+        "images": [
+          "poster-4.png"
+        ]
+      },
+      {
+        "category": "Conference",
+        "date": "2026. 05. 07. - 2026. 05. 09.",
+        "title": "2026년도 제67회 대한의용생체공학회 춘계학술대회 KOSOMBE 2026 Spring Conference (Jeju, Korea)",
+        "body": "본 연구실 소속 박인기 학부연구생이 2026년 5월 7일부터 9일까지 제주신화월드리조트에서 개최된 제67회 대한의용생체공학회 춘계학술대회(KOSOMBE 2026)에 참가하여 포스터 발표를 성공적으로 마쳤습니다. In Gi Park (Undergraduate Student) successfully presented a poster at the 67th KOSOMBE Spring Conference held at Jeju Shinhwa World Resort (May 7–9, 2026).",
+        "images": [
+          "slide-3.jpg",
+          "poster-1.png"
+        ]
+        },
+      
+      ];
 
     function renderNotices() {
       const homePreview = document.getElementById('homeNoticePreview');
