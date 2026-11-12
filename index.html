@@ -964,7 +964,7 @@
 
           <div class="alumni-card">
             <h4>M.S. Alumni (석사 졸업생)</h4>
-            <ul class="alumni-list">
+            <ul class="alumni-list alumni-list-2col">
               <li><strong>육경민</strong> ('25)</li>
               <li><strong>장우철</strong> ('24)*</li>
               <li><strong>권혁주</strong> ('24)</li>
@@ -1047,34 +1047,23 @@
 
     <!-- ================= 6. CONTACT TAB ================= -->
     <div id="tab-contact" class="tab-page">
-      <div class="page-banner">
-        <h2>Contact</h2>
-        <p>Location and Contact Information</p>
-      </div>
-      <div class="container">
-        <div class="contact-grid">
-          <div class="contact-card">
-            <div class="contact-item">
-              <div class="contact-label">Laboratory</div>
-              <p><strong>바이오포토닉스 연구실 (Biophotonics Lab)</strong><br>
-              경희대학교 전자정보대학 생체의공학과</p>
-            </div>
-            <div class="contact-item">
-              <div class="contact-label">Address (국문)</div>
-              <p>(17104) 경기도 용인시 기흥구 덕영대로 1732<br>
-              경희대학교 국제캠퍼스 전자정보대학관 710호 (교수연구실: 709호)</p>
-            </div>
-            <div class="contact-item">
-              <div class="contact-label">Address (English)</div>
-              <p>Room 710 (PI Office: Rm 709), College of Electronics and Information,<br>
-              Kyung Hee University (Global Campus),<br>
-              1732 Deogyeong-daero, Giheung-gu, Yongin-si, Gyeonggi-do 17104, Republic of Korea</p>
-            </div>
-            <div class="contact-item">
-              <div class="contact-label">Contact Email</div>
-              <p>Prof. Kyung Min Byun: <strong>kmbyun@khu.ac.kr</strong></p>
-            </div>
-          </div>
+      <div class="contact-card" style="display:flex; flex-direction:column; justify-content:center;">
+  <div class="contact-item">
+    <div class="contact-label">Laboratory</div>
+    <p><strong>Biophotonics Lab (바이오포토닉스 연구실)</strong><br>
+    Department of Biomedical Engineering, Kyung Hee University</p>
+  </div>
+  <div class="contact-item">
+    <div class="contact-label">Location</div>
+    <p><strong>Room 710</strong> (PI Office: Rm 709), College of Electronics and Information<br>
+    1732 Deogyeong-daero, Giheung-gu, Yongin-si, Gyeonggi-do 17104, Korea<br>
+    <span style="color:#6b7280; font-size:0.88rem;">(17104) 경기도 용인시 기흥구 덕영대로 1732 경희대학교 전자정보대학관 710호</span></p>
+  </div>
+  <div class="contact-item">
+    <div class="contact-label">Contact</div>
+    <p>Prof. Kyung Min Byun · <a href="mailto:kmbyun@khu.ac.kr" style="color:#780205; font-weight:600; text-decoration:none;">kmbyun@khu.ac.kr</a></p>
+  </div>
+</div>
 
           <div>
             <iframe
@@ -1152,7 +1141,7 @@
         enName: "Hun Guk Son",
         dept: "Electronics and Information Convergence Engineering",
         email: "guk1323@khu.ac.kr",
-        room: "Rm 710, College of Electronics & Information",
+        room: "Rm 710",
         photo: "member-son.jpg",
         fallback: "손"
       },
@@ -1162,7 +1151,7 @@
         enName: "Joyeta Mazumder",
         dept: "Electronics and Information Convergence Engineering",
         email: "joyetam14@khu.ac.kr",
-        room: "Rm 710, College of Electronics & Information",
+        room: "Rm 710",
         photo: "member-joyeta.jpg",
         fallback: "JM"
       },
@@ -1170,9 +1159,9 @@
         role: "Undergraduate Student",
         name: "박 인 기",
         enName: "In Gi Park",
-        dept: "Department of Biomedical Engineering",
+        dept: "Biomedical Engineering",
         email: "pkt317@khu.ac.kr",
-        room: "Rm 710, College of Electronics & Information",
+        room: "Rm 710",
         photo: "member-park.jpg",
         fallback: "박"
       },
@@ -1180,9 +1169,9 @@
         role: "Undergraduate Student",
         name: "배 정 현",
         enName: "Jeong Hyeon Bae",
-        dept: "Department of Biomedical Engineering",
+        dept: "Biomedical Engineering",
         email: "jhbae0605@khu.ac.kr",
-        room: "Rm 710, College of Electronics & Information",
+        room: "Rm 710",
         photo: "member-bae.jpg",
         fallback: "배"
       }
