@@ -75,7 +75,7 @@ collections:
             summary: "{{fields.name}} {{fields.info}}"
             fields:
               - { label: "이름", name: "name", widget: "string" }
-              - { label: "소속 및 기간 (예: (Department of Biomedical Engineering, KyungHee University, 2026.03.-2026.08.))", name: "info", widget: "string" }
+              - { label: "소속 및 기간 (예: (Department of Biomedical Engineering, KyungHee University, Mar 2026 - Aug 2026))", name: "info", widget: "string" }
 
   # 3. Publications (논문 목록)
   - name: "publications"
