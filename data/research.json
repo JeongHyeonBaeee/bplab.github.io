@@ -2,21 +2,21 @@
   "items": [
     {
       "label": "Research Theme 01",
-      "title": "Plasmonic Nanostructures & SERS Biosensors",
-      "description": "We design and fabricate cost-effective, large-area plasmonic substrates—such as convective self-assembled nanoparticles, metallic nanogaps, and porous biomaterials (silk fibroin, nitrocellulose, chitosan)—to achieve ultra-sensitive Surface-Enhanced Raman Spectroscopy (SERS) and Localized Surface Plasmon Resonance (LSPR) detection of disease biomarkers, glucose, and pathogens.",
-      "image": "research-sers.jpg"
+      "title": "Early Disease Diagnosis Based on Raman Spectroscopy",
+      "description": "Modern medical research is rapidly shifting from treatment-centered approaches toward prevention and early diagnosis. Because appropriate therapeutic strategies depend heavily on the type and stage of a disease, the importance of early detection is increasingly emphasized.\nRaman spectroscopy is an optical technique that analyzes molecular structures based on unique vibrational spectra, enabling qualitative and quantitative analysis of target analytes, and is gaining wide adoption in biomedical fields. Our laboratory develops Surface-Enhanced Raman Spectroscopy (SERS) platforms and applies advanced signal analysis methods to accurately distinguish cancerous cells from normal cells. Through this research, we aim to realize rapid, accurate, and non-invasive or minimally invasive technologies for early cancer diagnosis.",
+      "image": "images/uploads/대학휘장-01.png"
     },
     {
       "label": "Research Theme 02",
-      "title": "Fiber-Optic & Miniaturized Point-of-Care Optical Systems",
-      "description": "To translate optical spectroscopy from the benchtop to clinical and field settings, we develop hollow-core fiber SERS probes, 3D-printed multimodal Raman probes, and portable optical readers capable of rapid, label-free molecular diagnosis with high signal-to-noise ratios.",
-      "image": "research-fiber.jpg"
+      "title": "Biomolecular Detection Using Ultra-Sensitive Plasmonic Sensors",
+      "description": "This research aims to enhance the sensitivity of conventional plasmonic sensor substrates by integrating diverse dielectric and metallic nanostructures, and to apply these platforms to the detection of highly pathogenic viruses.\nBy coupling nanostructures, we increase the effective sensing surface area and induce Localized Surface Plasmon Resonance (LSPR) and electromagnetic hot-spots, significantly boosting detection sensitivity. Building upon this technological expertise, we have successfully detected DNA amplification of avian influenza viruses and plan to expand our diagnostic capabilities to various infectious diseases, including foot-and-mouth disease and swine influenza.",
+      "image": "images/uploads/대학휘장-01.png"
     },
     {
       "label": "Research Theme 03",
-      "title": "Optical Neuromodulation & Wearable Biomedical Devices",
-      "description": "We explore near-infrared photothermal neural stimulation mediated by gold nanorods as well as flexible, sustainable wearable sensors—including upcycled chitosan-based electronic skin, digital stethoscopes, and pulse oximetry imaging systems—for continuous physiological monitoring and human–machine interfaces.",
-      "image": "research-neuro.jpg"
+      "title": "Optical Detection of Neural Signals and Study of Neural Activity Mechanisms",
+      "description": "This research focuses on developing optical technologies to detect neural signals using plasmonic optical sensors rather than conventional electrical methods. By integrating optical sensing systems with electrical or ultrasonic stimulation, signals generated from neural cells and tissues can be measured non-invasively.\nFurthermore, by developing optical neuromodulation systems capable of selectively stimulating and recording targeted neural regions, we investigate and control the underlying mechanisms of neural activity.",
+      "image": "images/uploads/대학휘장-01.png"
     }
   ]
 }
