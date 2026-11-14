@@ -23,7 +23,7 @@ collections:
             summary: "{{fields.caption}}"
             fields:
               - { label: "사진 파일", name: "image", widget: "image" }
-              - { label: "사진 설명 (캡션)", name: "caption", widget: "string" }
+              - { label: "사진 설명 (캡션)", name: "caption", widget: "text" }
           - { label: "영문 소개글", name: "welcomeEn", widget: "text" }
           - { label: "국문 소개글", name: "welcomeKo", widget: "text" }
           - { label: "학생 모집 안내문", name: "recruitText", widget: "text" }
@@ -33,11 +33,11 @@ collections:
         file: "data/contact.json"
         fields:
           - { label: "영문 주소", name: "addressEn", widget: "text" }
-          - { label: "국문 주소", name: "addressKo", widget: "string" }
-          - { label: "연구책임자(PI) 표기", name: "piName", widget: "string" }
-          - { label: "전화 및 팩스 번호", name: "phoneFax", widget: "string" }
-          - { label: "대표 이메일", name: "email", widget: "string" }
-          - { label: "구글 지도 검색어", name: "mapQuery", widget: "string" }
+          - { label: "국문 주소", name: "addressKo", widget: "text" }
+          - { label: "연구책임자(PI) 표기", name: "piName", widget: "text" }
+          - { label: "전화 및 팩스 번호", name: "phoneFax", widget: "text" }
+          - { label: "대표 이메일", name: "email", widget: "text" }
+          - { label: "구글 지도 검색어", name: "mapQuery", widget: "text" }
 
   - name: "research"
     label: "2. Research"
@@ -51,8 +51,8 @@ collections:
             widget: "list"
             summary: "{{fields.label}} - {{fields.title}}"
             fields:
-              - { label: "상단 번호 라벨", name: "label", widget: "string" }
-              - { label: "연구 분야 제목", name: "title", widget: "string" }
+              - { label: "상단 번호 라벨", name: "label", widget: "text" }
+              - { label: "연구 분야 제목", name: "title", widget: "text" }
               - { label: "연구 내용 설명", name: "description", widget: "text" }
               - { label: "대표 이미지", name: "image", widget: "image" }
 
@@ -70,10 +70,10 @@ collections:
             fields:
               - { label: "논문 번호", name: "num", widget: "number", value_type: "int" }
               - { label: "출판 연도", name: "year", widget: "number", value_type: "int" }
-              - { label: "저자 목록", name: "authors", widget: "string" }
-              - { label: "논문 제목", name: "title", widget: "string" }
-              - { label: "저널명 및 권/호/날짜", name: "journal", widget: "string" }
-              - { label: "강조 배지 (선택)", name: "badge", widget: "string", required: false }
+              - { label: "저자 목록", name: "authors", widget: "text" }
+              - { label: "논문 제목", name: "title", widget: "text" }
+              - { label: "저널명 및 권/호/날짜", name: "journal", widget: "text" }
+              - { label: "강조 배지 (선택)", name: "badge", widget: "text", required: false }
 
   - name: "members"
     label: "4. Members & PI & Alumni"
@@ -83,25 +83,25 @@ collections:
         file: "data/pi.json"
         fields:
           - { label: "프로필 사진", name: "photo", widget: "image" }
-          - { label: "성함 및 학위", name: "name", widget: "string" }
-          - { label: "직위 및 소속", name: "role", widget: "string" }
-          - { label: "연구실 위치", name: "office", widget: "string" }
-          - { label: "전화번호", name: "tel", widget: "string" }
-          - { label: "이메일", name: "email", widget: "string" }
+          - { label: "성함 및 학위", name: "name", widget: "text" }
+          - { label: "직위 및 소속", name: "role", widget: "text" }
+          - { label: "연구실 위치", name: "office", widget: "text" }
+          - { label: "전화번호", name: "tel", widget: "text" }
+          - { label: "이메일", name: "email", widget: "text" }
           - label: "학력 (Education)"
             name: "education"
             widget: "list"
             summary: "{{fields.degree}} - {{fields.detail}}"
             fields:
-              - { label: "학위", name: "degree", widget: "string" }
-              - { label: "전공 및 학교/연도", name: "detail", widget: "string" }
+              - { label: "학위", name: "degree", widget: "text" }
+              - { label: "전공 및 학교/연도", name: "detail", widget: "text" }
           - label: "주요 경력 (Academic Career)"
             name: "career"
             widget: "list"
             summary: "{{fields.period}} {{fields.detail}}"
             fields:
-              - { label: "기간", name: "period", widget: "string" }
-              - { label: "경력 내용", name: "detail", widget: "string" }
+              - { label: "기간", name: "period", widget: "text" }
+              - { label: "경력 내용", name: "detail", widget: "text" }
 
       - label: "현재 구성원 관리"
         name: "member_list"
@@ -113,12 +113,12 @@ collections:
             summary: "{{fields.role}} - {{fields.name}} ({{fields.enName}})"
             fields:
               - { label: "과정", name: "role", widget: "select", options: ["Ph.D. Student", "Integrated M.S./Ph.D. Student", "M.S. Student", "Undergraduate Student"] }
-              - { label: "한글 이름", name: "name", widget: "string" }
-              - { label: "영문 이름", name: "enName", widget: "string" }
-              - { label: "소속 학과", name: "dept", widget: "string", default: "Biomedical Engineering" }
-              - { label: "이메일", name: "email", widget: "string" }
+              - { label: "한글 이름", name: "name", widget: "text" }
+              - { label: "영문 이름", name: "enName", widget: "text" }
+              - { label: "소속 학과", name: "dept", widget: "text", default: "Biomedical Engineering" }
+              - { label: "이메일", name: "email", widget: "text" }
               - { label: "프로필 사진", name: "photo", widget: "image", required: false }
-              - { label: "사진 없을 때 표시할 글자", name: "fallback", widget: "string" }
+              - { label: "사진 없을 때 표시할 글자", name: "fallback", widget: "text" }
 
       - label: "졸업생 및 수료생 관리 (Alumni)"
         name: "alumni_list"
@@ -129,22 +129,22 @@ collections:
             widget: "list"
             summary: "{{fields.name}} {{fields.year}}"
             fields:
-              - { label: "이름", name: "name", widget: "string" }
-              - { label: "졸업연도 및 비고", name: "year", widget: "string" }
+              - { label: "이름", name: "name", widget: "text" }
+              - { label: "졸업연도 및 비고", name: "year", widget: "text" }
           - label: "M.S. Alumni (석사 졸업생)"
             name: "ms"
             widget: "list"
             summary: "{{fields.name}} {{fields.year}}"
             fields:
-              - { label: "이름", name: "name", widget: "string" }
-              - { label: "졸업연도 및 비고", name: "year", widget: "string" }
+              - { label: "이름", name: "name", widget: "text" }
+              - { label: "졸업연도 및 비고", name: "year", widget: "text" }
           - label: "Undergraduate Student (학부연구생 수료)"
             name: "undergrad"
             widget: "list"
             summary: "{{fields.name}} {{fields.info}}"
             fields:
-              - { label: "이름", name: "name", widget: "string" }
-              - { label: "소속 및 기간", name: "info", widget: "string" }
+              - { label: "이름", name: "name", widget: "text" }
+              - { label: "소속 및 기간", name: "info", widget: "text" }
 
   - name: "news"
     label: "5. News"
@@ -159,8 +159,8 @@ collections:
             summary: "{{fields.date}} | {{fields.title}}"
             fields:
               - { label: "카테고리", name: "category", widget: "select", options: ["Conference", "Award", "Poster", "Notice"], default: "Conference" }
-              - { label: "날짜", name: "date", widget: "string" }
-              - { label: "제목", name: "title", widget: "string" }
+              - { label: "날짜", name: "date", widget: "text" }
+              - { label: "제목", name: "title", widget: "text" }
               - { label: "본문 내용", name: "body", widget: "text" }
               - label: "첨부 사진 / 포스터"
                 name: "images"
