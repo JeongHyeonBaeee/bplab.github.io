@@ -1,8 +1,17 @@
 {
   "slides": [
-    { "image": "slide-1.jpg", "caption": "Biophotonics Lab Members at Kyung Hee University" },
-    { "image": "slide-2.jpg", "caption": "2026 Fall Conference of the Korean Sensors Society (Yeosu)" },
-    { "image": "slide-3.jpg", "caption": "2026 KOSOMBE Spring Conference (Jeju)" }
+    {
+      "image": "images/uploads/slide-1.png",
+      "caption": "Raman Spectroscopy"
+    },
+    {
+      "image": "images/uploads/slide-2.jpg",
+      "caption": "2026 Fall Conference of the Korean Sensors Society (Yeosu)"
+    },
+    {
+      "image": "images/uploads/slide-3.jpg",
+      "caption": "2026 KOSOMBE Spring Conference (Jeju)"
+    }
   ],
   "welcomeEn": "Welcome to the Biophotonics Laboratory at Kyung Hee University, directed by Prof. Kyung Min Byun. Our research focuses on understanding light–matter interactions at the nanoscale and translating plasmonic and optical technologies into high-sensitivity biomedical diagnostics and healthcare platforms.",
   "welcomeKo": "경희대학교 생체의공학과 바이오포토닉스 연구실(Biophotonics Lab)은 나노광학 및 플라즈모닉스(Plasmonics) 원리를 기반으로 고감도 광학 바이오센서, 표면증강 라만 분광(SERS) 진단 플랫폼, 그리고 차세대 웨어러블 생체신호 모니터링 기기를 연구하고 있습니다.",
