@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "role": "M.S. Student",
+      "name": "손 훈 국",
+      "enName": "Hun Guk Son",
+      "dept": "Electronics and Information Convergence Engineering",
+      "email": "guk1323@khu.ac.kr",
+      "photo": "member-son.jpg",
+      "fallback": "손"
+    },
+    {
+      "role": "M.S. Student",
+      "name": "Joyeta Mazumder",
+      "enName": "Joyeta Mazumder",
+      "dept": "Electronics and Information Convergence Engineering",
+      "email": "joyetam14@khu.ac.kr",
+      "photo": "member-joyeta.jpg",
+      "fallback": "JM"
+    },
+    {
+      "role": "Undergraduate Student",
+      "name": "박 인 기",
+      "enName": "In Gi Park",
+      "dept": "Biomedical Engineering",
+      "email": "pkt317@khu.ac.kr",
+      "photo": "member-park.jpg",
+      "fallback": "박"
+    },
+    {
+      "role": "Undergraduate Student",
+      "name": "배 정 현",
+      "enName": "Jeong Hyeon Bae",
+      "dept": "Biomedical Engineering",
+      "email": "jhbae0605@khu.ac.kr",
+      "photo": "member-bae.jpg",
+      "fallback": "배"
+    }
+  ]
+}
