@@ -1,0 +1,73 @@
+backend:
+  name: github
+  repo: JeongHyeonBaeee/bplab.github.io
+  branch: main
+  base_url: https://bplab-cms-auth.pages.dev # 3단계에서 만들 무료 인증 서버 주소
+
+media_folder: "images/uploads" # 사진이 자동 업로드될 폴더
+public_folder: "images/uploads"
+
+collections:
+  # 1. News (학회 / 수상 / 공지)
+  - name: "news"
+    label: "News (뉴스 & 포스터)"
+    files:
+      - label: "News 목록 관리"
+        name: "news_list"
+        file: "data/news.json"
+        fields:
+          - label: "뉴스 목록"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.date}} | {{fields.title}}"
+            fields:
+              - { label: "카테고리", name: "category", widget: "select", options: ["Conference", "Award", "Poster", "Notice"], default: "Conference" }
+              - { label: "날짜 (예: 2026. 11. 04. - 2026. 11. 07.)", name: "date", widget: "string" }
+              - { label: "제목", name: "title", widget: "string" }
+              - { label: "본문 내용", name: "body", widget: "text" }
+              - label: "첨부 사진 / 포스터"
+                name: "images"
+                widget: "list"
+                required: false
+                field: { label: "이미지 파일", name: "image", widget: "image" }
+
+  # 2. Current Members (연구실 구성원)
+  - name: "members"
+    label: "Members (구성원)"
+    files:
+      - label: "현재 구성원 관리"
+        name: "member_list"
+        file: "data/members.json"
+        fields:
+          - label: "구성원 목록"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.role}} - {{fields.name}} ({{fields.enName}})"
+            fields:
+              - { label: "과정", name: "role", widget: "select", options: ["Ph.D. Student", "Integrated M.S./Ph.D. Student", "M.S. Student", "Undergraduate Student"] }
+              - { label: "한글 이름 (외국인은 영문)", name: "name", widget: "string" }
+              - { label: "영문 이름", name: "enName", widget: "string" }
+              - { label: "소속 학과 (영문)", name: "dept", widget: "string", default: "Biomedical Engineering" }
+              - { label: "이메일", name: "email", widget: "string" }
+              - { label: "프로필 사진", name: "photo", widget: "image" }
+              - { label: "사진 없을 때 표시할 글자 (예: 홍)", name: "fallback", widget: "string" }
+
+  # 3. Publications (논문 목록)
+  - name: "publications"
+    label: "Publications (논문)"
+    files:
+      - label: "논문 목록 관리"
+        name: "pub_list"
+        file: "data/publications.json"
+        fields:
+          - label: "논문 목록 (최신 논문을 맨 위에 추가하세요)"
+            name: "items"
+            widget: "list"
+            summary: "#{{fields.num}} ({{fields.year}}) {{fields.title}}"
+            fields:
+              - { label: "논문 번호", name: "num", widget: "number", value_type: "int" }
+              - { label: "출판 연도", name: "year", widget: "number", value_type: "int" }
+              - { label: "저자 목록", name: "authors", widget: "string" }
+              - { label: "논문 제목", name: "title", widget: "string" }
+              - { label: "저널명 및 권/호/날짜", name: "journal", widget: "string" }
+              - { label: "강조 배지 (선택: Accepted, Cover Image 등)", name: "badge", widget: "string", required: false }
