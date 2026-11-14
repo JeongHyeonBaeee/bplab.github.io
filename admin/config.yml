@@ -7,38 +7,108 @@ media_folder: "images/uploads"
 public_folder: "images/uploads"
 
 collections:
-  # 1. News (학회 / 수상 / 포스터)
-  - name: "news"
-    label: "News (뉴스 & 포스터)"
+  # 1. Home & Contact (홈 슬라이더 사진 + 인사말 + 연락처)
+  - name: "site_settings"
+    label: "1. Home & Contact (홈 슬라이더 & 연락처)"
     files:
-      - label: "News 목록 관리"
-        name: "news_list"
-        file: "data/news.json"
+      - label: "Home 화면 관리 (슬라이더 사진 & 인사말)"
+        name: "home_data"
+        file: "data/home.json"
         fields:
-          - label: "뉴스 목록"
+          - label: "메인 슬라이더 사진 (추가 / 삭제 / 순서변경 가능)"
+            name: "slides"
+            widget: "list"
+            summary: "{{fields.caption}}"
+            fields:
+              - { label: "사진 파일", name: "image", widget: "image" }
+              - { label: "사진 설명 (캡션)", name: "caption", widget: "string" }
+          - { label: "영문 소개글", name: "welcomeEn", widget: "text" }
+          - { label: "국문 소개글", name: "welcomeKo", widget: "text" }
+          - { label: "학생 모집 안내문", name: "recruitText", widget: "text" }
+
+      - label: "Contact 페이지 관리 (위치 & 연락처)"
+        name: "contact_data"
+        file: "data/contact.json"
+        fields:
+          - { label: "영문 주소", name: "addressEn", widget: "text" }
+          - { label: "국문 주소", name: "addressKo", widget: "string" }
+          - { label: "연구책임자(PI) 표기", name: "piName", widget: "string" }
+          - { label: "전화 및 팩스 번호", name: "phoneFax", widget: "string" }
+          - { label: "대표 이메일", name: "email", widget: "string" }
+          - { label: "구글 지도 검색어 (예: 경희대학교 국제캠퍼스 전자정보대학관)", name: "mapQuery", widget: "string" }
+
+  # 2. Research (연구 분야)
+  - name: "research"
+    label: "2. Research (연구 분야 수정)"
+    files:
+      - label: "Research 탭 목록 관리"
+        name: "research_list"
+        file: "data/research.json"
+        fields:
+          - label: "연구 분야 목록 (추가 / 수정 / 삭제 가능)"
             name: "items"
             widget: "list"
-            summary: "{{fields.date}} | {{fields.title}}"
+            summary: "{{fields.label}} - {{fields.title}}"
             fields:
-              - { label: "카테고리", name: "category", widget: "select", options: ["Conference", "Award", "Poster", "Notice"], default: "Conference" }
-              - { label: "날짜 (예: 2026. 11. 04. - 2026. 11. 07.)", name: "date", widget: "string" }
-              - { label: "제목", name: "title", widget: "string" }
-              - { label: "본문 내용", name: "body", widget: "text" }
-              - label: "첨부 사진 / 포스터"
-                name: "images"
-                widget: "list"
-                required: false
-                field: { label: "이미지 파일", name: "image", widget: "image" }
+              - { label: "상단 번호 라벨 (예: Research Theme 01)", name: "label", widget: "string" }
+              - { label: "연구 분야 제목", name: "title", widget: "string" }
+              - { label: "연구 내용 설명", name: "description", widget: "text" }
+              - { label: "대표 이미지", name: "image", widget: "image" }
 
-  # 2. Members & Alumni (현재 구성원 + 졸업생 통합 관리)
-  - name: "members"
-    label: "Members & Alumni (구성원 및 졸업생)"
+  # 3. Publications (논문 목록)
+  - name: "publications"
+    label: "3. Publications (논문 추가/수정/삭제)"
     files:
-      - label: "현재 구성원 관리 (Current Members)"
+      - label: "논문 목록 관리"
+        name: "pub_list"
+        file: "data/publications.json"
+        fields:
+          - label: "논문 목록 (항목 클릭 시 수정, 우측 X 버튼으로 삭제)"
+            name: "items"
+            widget: "list"
+            summary: "#{{fields.num}} ({{fields.year}}) {{fields.title}}"
+            fields:
+              - { label: "논문 번호", name: "num", widget: "number", value_type: "int" }
+              - { label: "출판 연도", name: "year", widget: "number", value_type: "int" }
+              - { label: "저자 목록", name: "authors", widget: "string" }
+              - { label: "논문 제목", name: "title", widget: "string" }
+              - { label: "저널명 및 권/호/날짜", name: "journal", widget: "string" }
+              - { label: "강조 배지 (선택: Accepted, Cover Image 등)", name: "badge", widget: "string", required: false }
+
+  # 4. Members, PI & Alumni (교수님 프로필 + 현재 구성원 + 졸업생)
+  - name: "members"
+    label: "4. Members & PI & Alumni (구성원 전체)"
+    files:
+      - label: "교수님 프로필 관리 (Principal Investigator)"
+        name: "pi_profile"
+        file: "data/pi.json"
+        fields:
+          - { label: "프로필 사진", name: "photo", widget: "image" }
+          - { label: "성함 및 학위 (예: 변 경 민 (Kyung Min Byun, Ph.D.))", name: "name", widget: "string" }
+          - { label: "직위 및 소속", name: "role", widget: "string" }
+          - { label: "연구실 위치 (Office)", name: "office", widget: "string" }
+          - { label: "전화번호 (Tel)", name: "tel", widget: "string" }
+          - { label: "이메일 (E-mail)", name: "email", widget: "string" }
+          - label: "학력 (Education)"
+            name: "education"
+            widget: "list"
+            summary: "{{fields.degree}} - {{fields.detail}}"
+            fields:
+              - { label: "학위 (예: Ph.D.)", name: "degree", widget: "string" }
+              - { label: "전공 및 학교/연도", name: "detail", widget: "string" }
+          - label: "주요 경력 (Academic Career)"
+            name: "career"
+            widget: "list"
+            summary: "{{fields.period}} {{fields.detail}}"
+            fields:
+              - { label: "기간 (예: 2018.03 – Present:)", name: "period", widget: "string" }
+              - { label: "경력 내용", name: "detail", widget: "string" }
+
+      - label: "현재 구성원 관리 (추가 / 수정 / 삭제)"
         name: "member_list"
         file: "data/members.json"
         fields:
-          - label: "현재 구성원 목록"
+          - label: "현재 구성원 목록 (우측 X 버튼으로 삭제 가능)"
             name: "items"
             widget: "list"
             summary: "{{fields.role}} - {{fields.name}} ({{fields.enName}})"
@@ -51,7 +121,7 @@ collections:
               - { label: "프로필 사진", name: "photo", widget: "image", required: false }
               - { label: "사진 없을 때 표시할 글자 (예: 홍)", name: "fallback", widget: "string" }
 
-      - label: "졸업생 및 수료생 관리 (Alumni)"
+      - label: "졸업생 및 수료생 관리 (Alumni 추가 / 수정 / 삭제)"
         name: "alumni_list"
         file: "data/alumni.json"
         fields:
@@ -75,24 +145,27 @@ collections:
             summary: "{{fields.name}} {{fields.info}}"
             fields:
               - { label: "이름", name: "name", widget: "string" }
-              - { label: "소속 및 기간 (예: (Department of Biomedical Engineering, KyungHee University, Mar 2026 - Aug 2026))", name: "info", widget: "string" }
+              - { label: "소속 및 기간", name: "info", widget: "string" }
 
-  # 3. Publications (논문 목록)
-  - name: "publications"
-    label: "Publications (논문)"
+  # 5. News (학회 / 수상 / 포스터)
+  - name: "news"
+    label: "5. News (뉴스 추가/수정/삭제)"
     files:
-      - label: "논문 목록 관리"
-        name: "pub_list"
-        file: "data/publications.json"
+      - label: "News 목록 관리"
+        name: "news_list"
+        file: "data/news.json"
         fields:
-          - label: "논문 목록 (최신 논문을 맨 위에 추가하세요)"
+          - label: "뉴스 목록 (항목 클릭 시 수정, 우측 X 버튼으로 삭제)"
             name: "items"
             widget: "list"
-            summary: "#{{fields.num}} ({{fields.year}}) {{fields.title}}"
+            summary: "{{fields.date}} | {{fields.title}}"
             fields:
-              - { label: "논문 번호", name: "num", widget: "number", value_type: "int" }
-              - { label: "출판 연도", name: "year", widget: "number", value_type: "int" }
-              - { label: "저자 목록", name: "authors", widget: "string" }
-              - { label: "논문 제목", name: "title", widget: "string" }
-              - { label: "저널명 및 권/호/날짜", name: "journal", widget: "string" }
-              - { label: "강조 배지 (선택: Accepted, Cover Image 등)", name: "badge", widget: "string", required: false }
+              - { label: "카테고리", name: "category", widget: "select", options: ["Conference", "Award", "Poster", "Notice"], default: "Conference" }
+              - { label: "날짜 (예: 2026. 11. 04. - 2026. 11. 07.)", name: "date", widget: "string" }
+              - { label: "제목", name: "title", widget: "string" }
+              - { label: "본문 내용", name: "body", widget: "text" }
+              - label: "첨부 사진 / 포스터"
+                name: "images"
+                widget: "list"
+                required: false
+                field: { label: "이미지 파일", name: "image", widget: "image" }
