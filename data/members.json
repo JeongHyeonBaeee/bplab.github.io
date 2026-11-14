@@ -6,7 +6,7 @@
       "enName": "Hun Guk Son",
       "dept": "Electronics and Information Convergence Engineering",
       "email": "guk1323@khu.ac.kr",
-      "photo": "member-son.jpg",
+      "photo": "images/uploads/member-son.jpg",
       "fallback": "손"
     },
     {
@@ -15,7 +15,7 @@
       "enName": "Joyeta Mazumder",
       "dept": "Electronics and Information Convergence Engineering",
       "email": "joyetam14@khu.ac.kr",
-      "photo": "member-joyeta.jpg",
+      "photo": "images/uploads/member-joyeta.jpg",
       "fallback": "JM"
     },
     {
@@ -24,7 +24,7 @@
       "enName": "In Gi Park",
       "dept": "Biomedical Engineering",
       "email": "pkt317@khu.ac.kr",
-      "photo": "member-park.jpg",
+      "photo": "images/uploads/member-park.jpg",
       "fallback": "박"
     },
     {
@@ -33,7 +33,7 @@
       "enName": "Jeong Hyeon Bae",
       "dept": "Biomedical Engineering",
       "email": "jhbae0605@khu.ac.kr",
-      "photo": "member-bae.jpg",
+      "photo": "images/uploads/member-bae.jpg",
       "fallback": "배"
     }
   ]
