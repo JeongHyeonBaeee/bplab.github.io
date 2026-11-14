@@ -831,36 +831,17 @@
       <div class="home-grid">
         <div class="card welcome-text">
           <h3>Welcome to Biophotonics Lab</h3>
-          <p>
-            Welcome to the <strong>Biophotonics Laboratory</strong> at Kyung Hee University, directed by Prof. Kyung Min Byun. Our research focuses on understanding light–matter interactions at the nanoscale and translating plasmonic and optical technologies into high-sensitivity biomedical diagnostics and healthcare platforms.
-          </p>
-          <p>
-            경희대학교 생체의공학과 <strong>바이오포토닉스 연구실(Biophotonics Lab)</strong>은 나노광학 및 플라즈모닉스(Plasmonics) 원리를 기반으로 고감도 광학 바이오센서, 표면증강 라만 분광(SERS) 진단 플랫폼, 그리고 차세대 웨어러블 생체신호 모니터링 기기를 연구하고 있습니다.
-          </p>
+          <p id="homeWelcomeEn"></p>
+          <p id="homeWelcomeKo"></p>
           <div class="highlight-box">
             <strong>Prospective Students (대학원생 및 학부연구생 모집):</strong><br>
-            We welcome motivated M.S., Ph.D., and undergraduate students interested in biophotonics, nanobiosensors, and biomedical instrumentation. Please contact Prof. Kyung Min Byun (<a href="mailto:kmbyun@khu.ac.kr" style="color:var(--khu-burgundy); font-weight:600;">kmbyun@khu.ac.kr</a>).
+            <span id="homeRecruitText"></span>
           </div>
         </div>
 
         <div style="display:flex; flex-direction:column; gap:1.75rem;">
           <!-- Gallery Slider -->
-          <div class="slider-container" id="homeSlider">
-            <div class="slide active">
-              <img src="slide-1.jpg" alt="Group Photo">
-              <div class="slide-caption">Biophotonics Lab Members at Kyung Hee University</div>
-            </div>
-            <div class="slide">
-              <img src="slide-2.jpg" alt="Conference Presentation">
-              <div class="slide-caption">2026 Fall Conference of the Korean Sensors Society (Yeosu)</div>
-            </div>
-            <div class="slide">
-              <img src="slide-3.jpg" alt="KOSOMBE 2026">
-              <div class="slide-caption">2026 KOSOMBE Spring Conference (Jeju)</div>
-            </div>
-            <button class="slider-btn slider-prev" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="slider-btn slider-next" onclick="moveSlide(1)">&#10095;</button>
-          </div>
+          <div class="slider-container" id="homeSlider"></div>
 
           <!-- Recent News Preview -->
           <div class="card">
@@ -878,47 +859,7 @@
     <section id="tab-research" class="tab-section">
       <h2 class="section-title">Research Areas</h2>
       <p class="section-subtitle">Core interdisciplinary research themes in nanophotonics, biosensing, and medical devices.</p>
-
-      <div class="research-list">
-        <div class="research-item">
-          <div class="research-thumb">
-            <img src="research-sers.jpg" alt="Plasmonic SERS Platform">
-          </div>
-          <div>
-            <div class="research-num">Research Theme 01</div>
-            <h3>Plasmonic Nanostructures &amp; SERS Biosensors</h3>
-            <p>
-              We design and fabricate cost-effective, large-area plasmonic substrates—such as convective self-assembled nanoparticles, metallic nanogaps, and porous biomaterials (silk fibroin, nitrocellulose, chitosan)—to achieve ultra-sensitive Surface-Enhanced Raman Spectroscopy (SERS) and Localized Surface Plasmon Resonance (LSPR) detection of disease biomarkers, glucose, and pathogens.
-            </p>
-          </div>
-        </div>
-
-        <div class="research-item">
-          <div class="research-thumb">
-            <img src="research-fiber.jpg" alt="Fiber-Optic Raman Probe">
-          </div>
-          <div>
-            <div class="research-num">Research Theme 02</div>
-            <h3>Fiber-Optic &amp; Miniaturized Point-of-Care Optical Systems</h3>
-            <p>
-              To translate optical spectroscopy from the benchtop to clinical and field settings, we develop hollow-core fiber SERS probes, 3D-printed multimodal Raman probes, and portable optical readers capable of rapid, label-free molecular diagnosis with high signal-to-noise ratios.
-            </p>
-          </div>
-        </div>
-
-        <div class="research-item">
-          <div class="research-thumb">
-            <img src="research-neuro.jpg" alt="Optical Neural Modulation">
-          </div>
-          <div>
-            <div class="research-num">Research Theme 03</div>
-            <h3>Optical Neuromodulation &amp; Wearable Biomedical Devices</h3>
-            <p>
-              We explore near-infrared photothermal neural stimulation mediated by gold nanorods as well as flexible, sustainable wearable sensors—including upcycled chitosan-based electronic skin, digital stethoscopes, and pulse oximetry imaging systems—for continuous physiological monitoring and human–machine interfaces.
-            </p>
-          </div>
-        </div>
-      </div>
+      <div class="research-list" id="researchList"></div>
     </section>
 
     <!-- 3. PUBLICATIONS TAB -->
@@ -938,41 +879,7 @@
     <section id="tab-members" class="tab-section">
       <h2 class="section-title">Principal Investigator</h2>
       <p class="section-subtitle">Faculty Director of the Biophotonics Laboratory.</p>
-
-      <div class="pi-card">
-        <img src="prof-byun.jpg" alt="Prof. Kyung Min Byun" class="pi-photo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22220%22 height=%22290%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23e5e7eb%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2216%22 fill=%22%236b7280%22>Prof. K. M. Byun</text></svg>'">
-        <div>
-          <div class="pi-header">
-            <h3>변 경 민 (Kyung Min Byun, Ph.D.)</h3>
-            <div class="pi-role">Professor, Department of Biomedical Engineering, Kyung Hee University</div>
-          </div>
-          <p style="font-size:0.92rem; color:#374151;">
-            <strong>Office:</strong> Room 709, College of Electronics and Information &nbsp;|&nbsp;
-            <strong>Tel:</strong> +82-31-201-3769 &nbsp;|&nbsp;
-            <strong>E-mail:</strong> <a href="mailto:kmbyun@khu.ac.kr" style="color:var(--khu-burgundy); font-weight:600;">kmbyun@khu.ac.kr</a>
-          </p>
-          <div class="pi-info-grid">
-            <div>
-              <h4>Education</h4>
-              <ul>
-                <li><strong>Ph.D.</strong> in Electrical Engineering, Seoul National University (2006)</li>
-                <li><strong>M.S.</strong> in Electrical Engineering, Seoul National University (2002)</li>
-                <li><strong>B.S.</strong> in Electrical Engineering, Seoul National University (2000)</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Academic Career</h4>
-              <ul>
-                <li><strong>2018.03 – Present:</strong> Professor, Dept. of Biomedical Engineering, Kyung Hee Univ.</li>
-                <li><strong>2014.03 – 2015.02:</strong> Visiting Scholar, Dept. of Nanoengineering, UC San Diego</li>
-                <li><strong>2012.03 – 2018.02:</strong> Associate Professor, Kyung Hee Univ.</li>
-                <li><strong>2008.03 – 2012.02:</strong> Assistant Professor, Kyung Hee Univ.</li>
-                <li><strong>2007.03 – 2008.02:</strong> Post-doc, Dept. of Biomedical Engineering, Cornell Univ.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="pi-card" id="piCard"></div>
 
       <h2 class="section-title">Current Members</h2>
       <p class="section-subtitle">Graduate and Undergraduate Researchers.</p>
@@ -1010,34 +917,9 @@
 
       <div class="contact-grid">
         <div class="card">
-          <ul class="contact-info-list">
-            <li>
-              <div class="contact-label">Laboratory Location (연구실 위치)</div>
-              <div>Room 710 (PI Office: Rm 709), College of Electronics and Information<br>Kyung Hee University (Global Campus), 1732 Deogyeong-daero, Giheung-gu, Yongin-si, Gyeonggi-do 17104, Republic of Korea</div>
-              <div style="font-size:0.88rem; color:var(--text-muted); margin-top:0.3rem;">(17104) 경기도 용인시 기흥구 덕영대로 1732 경희대학교 국제캠퍼스 전자정보대학관 710호</div>
-            </li>
-            <li>
-              <div class="contact-label">Principal Investigator</div>
-              <div>Prof. Kyung Min Byun (변경민 교수)</div>
-            </li>
-            <li>
-              <div class="contact-label">Phone &amp; Fax</div>
-              <div>Tel (PI Office): +82-31-201-3769 &nbsp;|&nbsp; Lab: +82-31-201-2941 &nbsp;|&nbsp; Fax: +82-31-202-9348</div>
-            </li>
-            <li>
-              <div class="contact-label">E-mail</div>
-              <div><a href="mailto:kmbyun@khu.ac.kr" style="color:var(--khu-burgundy); font-weight:600;">kmbyun@khu.ac.kr</a></div>
-            </li>
-          </ul>
+          <ul class="contact-info-list" id="contactInfoList"></ul>
         </div>
-        <div>
-          <iframe
-            class="map-frame"
-            src="https://maps.google.com/maps?q=경희대학교%20국제캠퍼스%20전자정보대학관&t=&z=16&ie=UTF8&iwloc=&output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
+        <div id="contactMapContainer"></div>
       </div>
     </section>
 
@@ -1057,13 +939,18 @@
     </div>
   </footer>
 
-  <!-- Data & Dynamic Rendering Script (Real-time JSON Fetch) -->
+  <!-- Real-time JSON Fetch & Dynamic Rendering Script -->
   <script>
+    let homeData = {};
+    let researchItems = [];
+    let piData = {};
     let currentMembers = [];
     let alumniData = { phd: [], ms: [], undergrad: [] };
     let newsItems = [];
     let publications = [];
+    let contactData = {};
     let selectedYear = 'ALL';
+    let slideIndex = 0;
 
     // Tab Switching
     function switchTab(tabId) {
@@ -1076,10 +963,36 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Home Slider
-    let slideIndex = 0;
-    const slides = document.querySelectorAll('.slide');
+    // Home Slider & Welcome
+    function renderHome() {
+      document.getElementById('homeWelcomeEn').textContent = homeData.welcomeEn || '';
+      document.getElementById('homeWelcomeKo').textContent = homeData.welcomeKo || '';
+      document.getElementById('homeRecruitText').innerHTML = (homeData.recruitText || '').replace(
+        /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/g,
+        '<a href="mailto:$1" style="color:var(--khu-burgundy); font-weight:600;">$1</a>'
+      );
+
+      const slides = homeData.slides || [];
+      const sliderEl = document.getElementById('homeSlider');
+      if (slides.length === 0) {
+        sliderEl.style.display = 'none';
+        return;
+      }
+      sliderEl.style.display = 'block';
+      slideIndex = 0;
+      sliderEl.innerHTML = slides.map((s, idx) => `
+        <div class="slide ${idx === 0 ? 'active' : ''}">
+          <img src="${s.image}" alt="${s.caption || 'Lab Slide'}">
+          <div class="slide-caption">${s.caption || ''}</div>
+        </div>
+      `).join('') + (slides.length > 1 ? `
+        <button class="slider-btn slider-prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="slider-btn slider-next" onclick="moveSlide(1)">&#10095;</button>
+      ` : '');
+    }
+
     function moveSlide(step) {
+      const slides = document.querySelectorAll('#homeSlider .slide');
       if (!slides.length) return;
       slides[slideIndex].classList.remove('active');
       slideIndex = (slideIndex + step + slides.length) % slides.length;
@@ -1087,8 +1000,58 @@
     }
     setInterval(() => moveSlide(1), 5000);
 
-    // Render Current Members & Alumni
+    // Render Research
+    function renderResearch() {
+      const container = document.getElementById('researchList');
+      container.innerHTML = researchItems.map(r => `
+        <div class="research-item">
+          <div class="research-thumb">
+            <img src="${r.image}" alt="${r.title}">
+          </div>
+          <div>
+            <div class="research-num">${r.label || ''}</div>
+            <h3>${r.title}</h3>
+            <p>${r.description}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Render PI, Current Members & Alumni
     function renderMembers() {
+      const piCard = document.getElementById('piCard');
+      if (piData && piData.name) {
+        piCard.innerHTML = `
+          <img src="${piData.photo || 'prof-byun.jpg'}" alt="${piData.name}" class="pi-photo"
+               onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22220%22 height=%22290%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23e5e7eb%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2216%22 fill=%22%236b7280%22>Prof. K. M. Byun</text></svg>'">
+          <div>
+            <div class="pi-header">
+              <h3>${piData.name}</h3>
+              <div class="pi-role">${piData.role || ''}</div>
+            </div>
+            <p style="font-size:0.92rem; color:#374151;">
+              <strong>Office:</strong> ${piData.office || ''} &nbsp;|&nbsp;
+              <strong>Tel:</strong> ${piData.tel || ''} &nbsp;|&nbsp;
+              <strong>E-mail:</strong> <a href="mailto:${piData.email}" style="color:var(--khu-burgundy); font-weight:600;">${piData.email || ''}</a>
+            </p>
+            <div class="pi-info-grid">
+              <div>
+                <h4>Education</h4>
+                <ul>
+                  ${(piData.education || []).map(e => `<li><strong>${e.degree}</strong> ${e.detail}</li>`).join('')}
+                </ul>
+              </div>
+              <div>
+                <h4>Academic Career</h4>
+                <ul>
+                  ${(piData.career || []).map(c => `<li><strong>${c.period}</strong> ${c.detail}</li>`).join('')}
+                </ul>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
       const grid = document.getElementById('currentMembersGrid');
       grid.innerHTML = currentMembers.map(m => `
         <div class="member-card">
@@ -1204,26 +1167,72 @@
       `).join('');
     }
 
-    // Real-time Load from data/*.json
+    // Render Contact
+    function renderContact() {
+      const infoList = document.getElementById('contactInfoList');
+      infoList.innerHTML = `
+        <li>
+          <div class="contact-label">Laboratory Location (연구실 위치)</div>
+          <div>${(contactData.addressEn || '').replace(/\n/g, '<br>')}</div>
+          <div style="font-size:0.88rem; color:var(--text-muted); margin-top:0.3rem;">${contactData.addressKo || ''}</div>
+        </li>
+        <li>
+          <div class="contact-label">Principal Investigator</div>
+          <div>${contactData.piName || ''}</div>
+        </li>
+        <li>
+          <div class="contact-label">Phone &amp; Fax</div>
+          <div>${contactData.phoneFax || ''}</div>
+        </li>
+        <li>
+          <div class="contact-label">E-mail</div>
+          <div><a href="mailto:${contactData.email}" style="color:var(--khu-burgundy); font-weight:600;">${contactData.email || ''}</a></div>
+        </li>
+      `;
+
+      const query = encodeURIComponent(contactData.mapQuery || '경희대학교 국제캠퍼스 전자정보대학관');
+      document.getElementById('contactMapContainer').innerHTML = `
+        <iframe
+          class="map-frame"
+          src="https://maps.google.com/maps?q=${query}&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      `;
+    }
+
+    // Load All JSON Files in Real-Time
     async function loadAllData() {
       try {
-        const [mRes, aRes, nRes, pRes] = await Promise.all([
-          fetch('data/members.json', { cache: 'no-store' }),
-          fetch('data/alumni.json', { cache: 'no-store' }),
-          fetch('data/news.json', { cache: 'no-store' }),
-          fetch('data/publications.json', { cache: 'no-store' })
+        const opts = { cache: 'no-store' };
+        const [hRes, rRes, piRes, mRes, aRes, nRes, pRes, cRes] = await Promise.all([
+          fetch('data/home.json', opts),
+          fetch('data/research.json', opts),
+          fetch('data/pi.json', opts),
+          fetch('data/members.json', opts),
+          fetch('data/alumni.json', opts),
+          fetch('data/news.json', opts),
+          fetch('data/publications.json', opts),
+          fetch('data/contact.json', opts)
         ]);
+        if (hRes.ok) homeData = await hRes.json();
+        if (rRes.ok) researchItems = (await rRes.json()).items || [];
+        if (piRes.ok) piData = await piRes.json();
         if (mRes.ok) currentMembers = (await mRes.json()).items || [];
         if (aRes.ok) alumniData = await aRes.json();
         if (nRes.ok) newsItems = (await nRes.json()).items || [];
         if (pRes.ok) publications = (await pRes.json()).items || [];
+        if (cRes.ok) contactData = await cRes.json();
       } catch (e) {
-        console.error('데이터 로드 중 오류 발생:', e);
+        console.error('데이터 로드 오류:', e);
       }
+      renderHome();
+      renderResearch();
       renderMembers();
       renderNotices();
       initYearFilters();
       renderPublications();
+      renderContact();
     }
 
     loadAllData();
