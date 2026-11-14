@@ -4,6 +4,7 @@ backend:
   branch: main
   base_url: https://api.netlify.com
   auth_endpoint: auth
+  site_domain: fluffy-dasik-e876a5.netlify.app
 
 media_folder: "images/uploads"
 public_folder: "images/uploads"
