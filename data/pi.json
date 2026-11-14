@@ -1,20 +1,36 @@
 {
-  "photo": "prof-byun.jpg",
+  "photo": "images/uploads/prof-byun.jpg",
   "name": "변 경 민 (Kyung Min Byun, Ph.D.)",
   "role": "Professor, Department of Biomedical Engineering, Kyung Hee University",
   "office": "Room 709, College of Electronics and Information",
-  "tel": "+82-31-201-3769",
+  "tel": "031-201-3842",
   "email": "kmbyun@khu.ac.kr",
   "education": [
-    { "degree": "Ph.D.", "detail": "in Electrical Engineering, Seoul National University (2006)" },
-    { "degree": "M.S.", "detail": "in Electrical Engineering, Seoul National University (2002)" },
-    { "degree": "B.S.", "detail": "in Electrical Engineering, Seoul National University (2000)" }
+    {
+      "degree": "Ph.D.",
+      "detail": "서울대학교 전기컴퓨터공학부 공학박사 (2002.3 ~ 2007.2) (지도교수 : 김성준)"
+    },
+    {
+      "degree": "M.S.",
+      "detail": "서울대학교 전기컴퓨터공학부 공학석사 (2000.3 ~ 2002.2)  (지도교수 : 이병호)"
+    },
+    {
+      "degree": "B.S.",
+      "detail": "서울대학교 전기공학부 공학사 (1996.3 ~ 2000.2)"
+    }
   ],
   "career": [
-    { "period": "2018.03 – Present:", "detail": "Professor, Dept. of Biomedical Engineering, Kyung Hee Univ." },
-    { "period": "2014.03 – 2015.02:", "detail": "Visiting Scholar, Dept. of Nanoengineering, UC San Diego" },
-    { "period": "2012.03 – 2018.02:", "detail": "Associate Professor, Kyung Hee Univ." },
-    { "period": "2008.03 – 2012.02:", "detail": "Assistant Professor, Kyung Hee Univ." },
-    { "period": "2007.03 – 2008.02:", "detail": "Post-doc, Dept. of Biomedical Engineering, Cornell Univ." }
+    {
+      "period": "2008.03 – Present:",
+      "detail": "Professor, Dept. of Biomedical Engineering, Kyung Hee Univ."
+    },
+    {
+      "period": "2014.03 – 2015.02:",
+      "detail": "Visiting Scholar, Dept. of Nanoengineering, UC San Diego"
+    },
+    {
+      "period": "2007.03 – 2008.02:",
+      "detail": "Post-doc, Dept. of Biomedical Engineering, Cornell Univ."
+    }
   ]
 }
