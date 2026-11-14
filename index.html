@@ -1,475 +1,522 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Biophotonics Lab | Kyung Hee University</title>
-  <link rel="icon" type="image/png" href="lab-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --khu-burgundy: #780205;
-      --khu-dark: #4f0103;
-      --khu-gold: #d3ac52;
-      --bg-light: #f8f9fa;
-      --border-color: #e5e7eb;
-      --text-main: #1f2937;
-      --text-muted: #6b7280;
+      --khu-burgundy: #8B1C24;
+      --khu-burgundy-dark: #681218;
+      --khu-gold: #B39659;
+      --bg-light: #F8F9FA;
+      --text-main: #1F2937;
+      --text-muted: #6B7280;
+      --border-color: #E5E7EB;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--text-main);
-      line-height: 1.65;
       background-color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      word-break: keep-all;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
     }
+
+    a { text-decoration: none; color: inherit; }
 
     /* Navigation */
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.98);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border-color);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
     }
+
     .nav-container {
-      max-width: 1140px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0 1.5rem;
-      height: 72px;
+      height: 70px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
     }
-    .brand-group {
+
+    .brand {
       display: flex;
       align-items: center;
-      gap: 0.7rem;
+      gap: 0.75rem;
       cursor: pointer;
-      text-decoration: none;
     }
-    .brand-img {
+
+    .brand-logo {
+      width: 36px;
       height: 36px;
-      width: auto;
       object-fit: contain;
     }
-    .logo-text {
-      font-size: 1.22rem;
+
+    .brand-text {
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--khu-burgundy);
       letter-spacing: -0.02em;
     }
-    .logo-text span { color: var(--khu-gold); }
+
+    .brand-text span {
+      font-weight: 400;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-left: 0.35rem;
+    }
 
     nav ul {
-      list-style: none;
       display: flex;
+      list-style: none;
       gap: 0.35rem;
     }
-    nav button.nav-tab {
+
+    .nav-btn {
       background: none;
       border: none;
-      padding: 0.55rem 0.95rem;
-      border-radius: 6px;
       font-family: inherit;
       font-size: 0.94rem;
       font-weight: 500;
       color: var(--text-main);
+      padding: 0.5rem 0.95rem;
+      border-radius: 6px;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
     }
-    nav button.nav-tab:hover {
+
+    .nav-btn:hover {
       color: var(--khu-burgundy);
-      background: #fdf2f2;
+      background-color: #fdf2f2;
     }
-    nav button.nav-tab.active {
+
+    .nav-btn.active {
       color: #ffffff;
-      background: var(--khu-burgundy);
+      background-color: var(--khu-burgundy);
       font-weight: 600;
     }
 
-    /* Tab Page Visibility */
-    main { flex: 1; }
-    .tab-page { display: none; animation: fadeIn 0.25s ease; }
-    .tab-page.active { display: block; }
+    /* Hero Banner */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, rgba(60, 12, 16, 0.92), rgba(139, 28, 36, 0.85)),
+                  url('research-sers.jpg') center/cover no-repeat;
+      color: #ffffff;
+      padding: 4.5rem 1.5rem;
+    }
+
+    .hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #f3e8d2;
+      border: 1px solid rgba(243, 232, 210, 0.4);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.88);
+      max-width: 720px;
+      font-weight: 300;
+    }
+
+    /* Main Layout */
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    .tab-section {
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .tab-section.active {
+      display: block;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Home Hero & Auto Slider */
-    .hero {
-      background: linear-gradient(135deg, #2b0405 0%, var(--khu-burgundy) 60%, #420a0c 100%);
-      color: #ffffff;
-      padding: 4.5rem 1.5rem 4rem;
-      text-align: center;
-    }
-    .hero-inner { max-width: 960px; margin: 0 auto; }
-    .hero-badge {
-      display: inline-block;
-      padding: 0.35rem 1rem;
-      border: 1px solid rgba(211, 172, 82, 0.5);
-      border-radius: 999px;
-      color: var(--khu-gold);
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.3rem, 5vw, 3.6rem);
-      margin-bottom: 0.5rem;
-    }
-    .hero h1 span { color: var(--khu-gold); }
-    .hero-sub {
-      font-size: 1.1rem;
-      color: #e5e7eb;
-      margin-bottom: 2.25rem;
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--khu-burgundy);
+      margin-bottom: 0.4rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 2px solid var(--border-color);
     }
 
-    /* Carousel Slider */
-    .slider-wrapper {
-      position: relative;
-      max-width: 920px;
-      margin: 0 auto;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.45);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      background: #1a0506;
-      aspect-ratio: 16 / 8;
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
     }
-    .slide {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 0.7s ease-in-out;
+
+    /* Home Tab */
+    .home-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.75rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      color: var(--khu-burgundy);
+      margin-bottom: 1rem;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
     }
-    .slide.active { opacity: 1; z-index: 1; }
+
+    .welcome-text p {
+      margin-bottom: 1rem;
+      color: #374151;
+      font-size: 0.97rem;
+    }
+
+    .highlight-box {
+      background: var(--bg-light);
+      border-left: 4px solid var(--khu-burgundy);
+      padding: 1rem 1.25rem;
+      border-radius: 0 6px 6px 0;
+      margin-top: 1.25rem;
+      font-size: 0.92rem;
+    }
+
+    /* Slider */
+    .slider-container {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      background: #111;
+      aspect-ratio: 16 / 10;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
     .slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
+
     .slide-caption {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
       background: linear-gradient(transparent, rgba(0,0,0,0.82));
-      color: #f9fafb;
-      padding: 2rem 1.5rem 1rem;
-      font-size: 0.92rem;
-      text-align: left;
+      color: #fff;
+      padding: 1.5rem 1rem 0.85rem;
+      font-size: 0.86rem;
     }
+
     .slider-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      z-index: 10;
       background: rgba(0,0,0,0.45);
       color: #fff;
-      border: 1px solid rgba(255,255,255,0.25);
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s;
-    }
-    .slider-btn:hover { background: var(--khu-burgundy); }
-    .slider-prev { left: 14px; }
-    .slider-next { right: 14px; }
-    .slider-dots {
-      position: absolute;
-      bottom: 12px;
-      right: 18px;
-      z-index: 10;
-      display: flex;
-      gap: 6px;
-    }
-    .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.4);
-      cursor: pointer;
       border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1rem;
     }
-    .dot.active { background: var(--khu-gold); transform: scale(1.2); }
 
-    /* Home 2-Column Overview */
-    .container { max-width: 1140px; margin: 0 auto; padding: 4rem 1.5rem; }
-    .home-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 2.5rem;
-    }
-    .overview-box {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-    }
-    .box-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid #f3f4f6;
-      padding-bottom: 0.85rem;
-      margin-bottom: 1.25rem;
-    }
-    .box-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--khu-burgundy);
-    }
-    .link-btn {
-      background: none;
-      border: none;
-      color: var(--khu-burgundy);
-      font-weight: 600;
-      font-size: 0.88rem;
-      cursor: pointer;
-    }
-    .link-btn:hover { text-decoration: underline; }
-    .about-text {
-      color: #374151;
-      font-size: 0.96rem;
-      line-height: 1.8;
-      margin-bottom: 1.25rem;
-    }
-    .mini-notice-item {
+    .slider-btn:hover { background: rgba(139, 28, 36, 0.85); }
+    .slider-prev { left: 10px; }
+    .slider-next { right: 10px; }
+
+    /* Recent News Preview on Home */
+    .notice-preview-item {
       padding: 0.85rem 0;
-      border-bottom: 1px solid #f3f4f6;
+      border-bottom: 1px solid var(--border-color);
       cursor: pointer;
+      transition: color 0.15s;
     }
-    .mini-notice-item:last-child { border-bottom: none; }
-    .mini-notice-item:hover .mini-notice-title { color: var(--khu-burgundy); }
-    .mini-notice-meta {
-      font-size: 0.78rem;
+
+    .notice-preview-item:last-child { border-bottom: none; }
+    .notice-preview-item:hover .notice-preview-title { color: var(--khu-burgundy); }
+
+    .notice-preview-date {
+      font-size: 0.8rem;
       color: var(--text-muted);
       margin-bottom: 0.2rem;
     }
-    .badge-cat {
-      background: #fdf2f2;
-      color: var(--khu-burgundy);
-      font-weight: 700;
-      padding: 0.15rem 0.5rem;
-      border-radius: 4px;
-      margin-right: 0.4rem;
-    }
-    .mini-notice-title {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--text-main);
+
+    .notice-preview-title {
+      font-size: 0.94rem;
+      font-weight: 500;
     }
 
-    /* Common Page Header */
-    .page-banner {
-      background: var(--bg-light);
-      border-bottom: 1px solid var(--border-color);
-      padding: 3rem 1.5rem;
-      text-align: center;
+    /* Research Tab */
+    .research-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2.25rem;
     }
-    .page-banner h2 {
-      font-size: 2rem;
-      color: var(--khu-burgundy);
-      margin-bottom: 0.4rem;
-    }
-    .page-banner p { color: var(--text-muted); font-size: 0.98rem; }
 
-    /* Research Cards */
-    .grid-3 {
+    .research-item {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      grid-template-columns: 340px 1fr;
       gap: 2rem;
-    }
-    .card {
       background: #ffffff;
       border: 1px solid var(--border-color);
       border-radius: 10px;
-      padding: 2rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.05);
-      border-color: var(--khu-burgundy);
-    }
-    .card-num {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--khu-burgundy);
-      margin-bottom: 0.6rem;
-      display: block;
-    }
-    .card h3 { font-size: 1.2rem; margin-bottom: 0.8rem; }
-    .card p { color: var(--text-muted); font-size: 0.94rem; }
-
-    /* Publications */
-    .pub-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    .filter-btns { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .filter-btn {
-      padding: 0.45rem 0.95rem;
-      border: 1px solid #d1d5db;
-      background: #ffffff;
-      color: var(--text-main);
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    .filter-btn.active {
-      background: var(--khu-burgundy);
-      color: #ffffff;
-      border-color: var(--khu-burgundy);
-    }
-    .pub-search {
-      padding: 0.5rem 1rem;
-      border: 1px solid #d1d5db;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      width: 260px;
-      max-width: 100%;
-    }
-    .pub-meta-bar {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-    }
-    .pub-list { display: flex; flex-direction: column; gap: 0.85rem; }
-    .pub-item {
-      background: #ffffff;
-      border: 1px solid #f3f4f6;
-      border-left: 4px solid var(--khu-burgundy);
-      padding: 1.15rem 1.4rem;
-      border-radius: 0 6px 6px 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-    }
-    .pub-top { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.3rem; }
-    .pub-num {
-      background: #fdf2f2;
-      color: var(--khu-burgundy);
-      font-weight: 700;
-      font-size: 0.78rem;
-      padding: 0.15rem 0.55rem;
-      border-radius: 4px;
-    }
-    .pub-year-tag {
-      background: #fefce8;
-      color: #854d0e;
-      border: 1px solid #fde047;
-      font-weight: 600;
-      font-size: 0.75rem;
-      padding: 0.1rem 0.5rem;
-      border-radius: 4px;
-    }
-    .pub-highlight {
-      background: #ecfdf5;
-      color: #065f46;
-      font-weight: 600;
-      font-size: 0.75rem;
-      padding: 0.1rem 0.5rem;
-      border-radius: 4px;
-    }
-    .pub-title { font-weight: 600; font-size: 0.98rem; margin-bottom: 0.25rem; }
-    .pub-authors { font-size: 0.87rem; color: var(--text-muted); }
-    .pub-journal { font-size: 0.87rem; font-weight: 500; color: var(--khu-burgundy); margin-top: 0.2rem; }
-
-    /* Members - Clean Modern Rectangular Frames (No Gold Round Border) */
-    .sub-heading {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--khu-burgundy);
-      margin: 2.75rem 0 1.25rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #f3f4f6;
-      display: flex;
-      justify-content: space-between;
+      padding: 1.75rem;
       align-items: center;
     }
-    .sub-heading:first-child { margin-top: 0; }
-    .pi-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-top: 4px solid var(--khu-burgundy);
+
+    .research-thumb {
+      width: 100%;
+      height: 220px;
       border-radius: 8px;
-      padding: 2.25rem;
-      display: grid;
-      grid-template-columns: 165px 1fr 1.25fr;
-      gap: 2.25rem;
-      align-items: start;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
-    }
-    .photo-box {
-      width: 155px;
-      height: 195px;
-      border-radius: 4px;
       overflow: hidden;
-      background: #f3f4f6;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      border: 1px solid #f0f0f0;
+      background: var(--bg-light);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--khu-burgundy);
-      font-weight: 700;
-      font-size: 1.5rem;
-      margin: 0 auto;
     }
-    .photo-box img {
+
+    .research-thumb img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-    }
-    .edu-item {
-      margin-bottom: 0.85rem;
-      font-size: 0.91rem;
-      line-height: 1.55;
-    }
-    .edu-item:last-child { margin-bottom: 0; }
-    .edu-period {
-      font-weight: 700;
-      color: #111827;
-      display: block;
-    }
-    .edu-advisor {
-      color: var(--text-muted);
-      font-size: 0.86rem;
     }
 
-    .member-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
+    .research-num {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--khu-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.3rem;
     }
+
+    .research-item h3 {
+      font-size: 1.25rem;
+      color: var(--khu-burgundy);
+      margin-bottom: 0.75rem;
+    }
+
+    .research-item p {
+      font-size: 0.95rem;
+      color: #374151;
+    }
+
+    /* Publications Tab */
+    .pub-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .pub-search {
+      padding: 0.6rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 0.92rem;
+      width: 300px;
+      max-width: 100%;
+    }
+
+    .pub-search:focus {
+      outline: none;
+      border-color: var(--khu-burgundy);
+    }
+
+    .year-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .year-btn {
+      background: var(--bg-light);
+      border: 1px solid var(--border-color);
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.84rem;
+      cursor: pointer;
+      color: var(--text-main);
+    }
+
+    .year-btn.active, .year-btn:hover {
+      background: var(--khu-burgundy);
+      color: #fff;
+      border-color: var(--khu-burgundy);
+    }
+
+    .pub-list {
+      list-style: none;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .pub-item {
+      padding: 1.15rem 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 0.75rem;
+    }
+
+    .pub-num {
+      font-weight: 700;
+      color: var(--khu-burgundy);
+      font-size: 0.92rem;
+    }
+
+    .pub-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: #111827;
+      margin-bottom: 0.25rem;
+    }
+
+    .pub-authors {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-bottom: 0.2rem;
+    }
+
+    .pub-journal {
+      font-size: 0.88rem;
+      color: var(--khu-burgundy-dark);
+      font-style: italic;
+    }
+
+    .pub-badge {
+      display: inline-block;
+      background: #fef3c7;
+      color: #92400e;
+      font-style: normal;
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      margin-left: 0.4rem;
+    }
+
+    /* Members Tab */
+    .pi-card {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 2.25rem;
+      background: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .pi-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      border-radius: 8px;
+      object-fit: cover;
+      background: #e5e7eb;
+      border: 1px solid var(--border-color);
+    }
+
+    .pi-header h3 {
+      font-size: 1.45rem;
+      color: var(--khu-burgundy);
+      margin-bottom: 0.2rem;
+    }
+
+    .pi-header .pi-role {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .pi-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .pi-info-grid h4 {
+      color: var(--khu-burgundy);
+      font-size: 0.92rem;
+      margin-bottom: 0.4rem;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.2rem;
+    }
+
+    .pi-info-grid ul {
+      list-style: none;
+      color: #374151;
+    }
+
+    .pi-info-grid li { margin-bottom: 0.35rem; }
+
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
     .member-card {
       background: #ffffff;
       border: 1px solid var(--border-color);
@@ -479,27 +526,39 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.02);
       transition: transform 0.2s, box-shadow 0.2s;
     }
+
     .member-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
     }
+
     .member-photo {
-      width: 120px;
-      height: 150px;
-      border-radius: 4px;
-      overflow: hidden;
+      width: 145px;
+      height: 175px;
+      border-radius: 8px;
+      object-fit: cover;
+      object-position: top center;
+      margin: 0 auto 1.1rem;
       background: #f3f4f6;
       border: 1px solid #e5e7eb;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.07);
-      margin: 0 auto 1.1rem;
+      display: block;
+    }
+
+    .avatar-placeholder {
+      width: 145px;
+      height: 175px;
+      border-radius: 8px;
+      background: #fdf2f2;
+      color: var(--khu-burgundy);
+      border: 1px solid #f3d1d4;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--khu-burgundy);
       font-weight: 700;
-      font-size: 1.3rem;
+      font-size: 1.75rem;
+      margin: 0 auto 1.1rem;
     }
-    .member-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
     .member-role {
       font-size: 0.78rem;
       color: var(--khu-burgundy);
@@ -508,71 +567,71 @@
       letter-spacing: 0.03em;
       margin-bottom: 0.3rem;
     }
-    .member-name { font-size: 1.1rem; font-weight: 700; color: #111827; }
-    .member-en { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.65rem; }
-    .member-meta { font-size: 0.84rem; color: #4b5563; line-height: 1.55; }
+
+    .member-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .member-en {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0.65rem;
+    }
+
+    .member-meta {
+      font-size: 0.84rem;
+      color: #4b5563;
+      line-height: 1.55;
+    }
 
     .alumni-grid {
-    display: grid;
-    grid-template-columns: 0.75fr 1.3fr 1.2fr;
-    gap: 1.5rem;
-  }
-    .alumni-card {
+      display: grid;
+      grid-template-columns: 0.75fr 1.6fr 0.85fr;
+      gap: 1.5rem;
+    }
+
+    .alumni-box {
       background: var(--bg-light);
       border: 1px solid var(--border-color);
       border-radius: 8px;
       padding: 1.5rem;
     }
-    .alumni-card h4 {
+
+    .alumni-box h4 {
       color: var(--khu-burgundy);
-      font-size: 1.05rem;
       margin-bottom: 0.85rem;
-      padding-bottom: 0.45rem;
-      border-bottom: 1px solid #e5e7eb;
+      font-size: 1.05rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.4rem;
     }
-    .alumni-list { list-style: none; font-size: 0.92rem; color: #374151; }
+
+    .alumni-list {
+      list-style: none;
+      font-size: 0.9rem;
+      color: #374151;
+    }
+
     .alumni-list li {
-      padding: 0.42rem 0;
-      border-bottom: 1px solid #eceef1;
+      padding: 0.35rem 0;
+      border-bottom: 1px dashed #e5e7eb;
     }
+
     .alumni-list li:last-child { border-bottom: none; }
+
     .alumni-list-2col {
       display: grid;
       grid-template-columns: 1fr 1fr;
       column-gap: 1.5rem;
     }
+
     .alumni-list-2col li:nth-last-child(2):nth-child(odd) {
       border-bottom: none;
     }
-    .alumni-note {
-      margin-top: 0.85rem;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      text-align: right;
-    }
 
     /* News Tab */
-    .notice-toolbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
-    .admin-only { display: none; }
-    body.is-admin .admin-only { display: inline-block; }
-
-    .btn-write {
-      background: var(--khu-burgundy);
-      color: #fff;
-      border: none;
-      padding: 0.6rem 1.15rem;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.88rem;
-      cursor: pointer;
-    }
-    .btn-write:hover { background: var(--khu-dark); }
-.notice-post {
+    .notice-post {
       background: #ffffff;
       border: 1px solid var(--border-color);
       border-radius: 10px;
@@ -583,27 +642,34 @@
       gap: 2.25rem;
       align-items: center;
     }
+
     .notice-post.no-image {
       grid-template-columns: 1fr;
     }
+
     .notice-left {
       min-width: 260px;
     }
+
     .notice-post-header {
       margin-bottom: 0.85rem;
     }
+
     .notice-post-title {
       font-size: 1.22rem;
       font-weight: 700;
       margin: 0.45rem 0 0.25rem;
       line-height: 1.4;
     }
+
     .notice-post-date { font-size: 0.85rem; color: var(--text-muted); }
+
     .notice-post-body {
       font-size: 0.95rem;
       color: #374151;
       line-height: 1.75;
     }
+
     .notice-images {
       display: flex;
       flex-wrap: nowrap;
@@ -611,6 +677,7 @@
       align-items: center;
       justify-content: flex-end;
     }
+
     .notice-images a {
       display: flex;
       align-items: center;
@@ -622,6 +689,7 @@
       background: #f9fafb;
       flex-shrink: 0;
     }
+
     .notice-images img {
       height: 100%;
       width: auto;
@@ -630,698 +698,444 @@
       display: block;
       transition: transform 0.2s;
     }
+
     .notice-images img:hover {
       transform: scale(1.02);
     }
-    /* Admin Generator Panels */
-    .writer-panel {
-      display: none;
-      background: #fffbeb;
-      border: 1px solid #fcd34d;
-      border-radius: 10px;
-      padding: 1.75rem;
-      margin-bottom: 2rem;
-    }
-    .writer-panel.open { display: block; }
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .form-group { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 0.85rem; }
-    .form-group label { font-size: 0.85rem; font-weight: 600; color: #374151; }
-    .form-group input, .form-group select, .form-group textarea {
-      padding: 0.6rem 0.85rem;
-      border: 1px solid #d1d5db;
-      border-radius: 6px;
-      font-family: inherit;
-      font-size: 0.92rem;
-    }
-    .code-output {
-      width: 100%;
-      height: 110px;
-      font-family: monospace;
-      font-size: 0.82rem;
-      padding: 0.75rem;
-      background: #1f2937;
-      color: #f9fafb;
-      border-radius: 6px;
-      margin-top: 0.75rem;
+
+    .badge-cat {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      background: #fdf2f2;
+      color: var(--khu-burgundy);
+      margin-right: 0.5rem;
     }
 
     /* Contact Tab */
     .contact-grid {
       display: grid;
-      grid-template-columns: 1.4fr 1.0fr;
+      grid-template-columns: 1.6fr 1fr;
       gap: 2.5rem;
-      align-items: start;
+      align-items: stretch;
     }
-    .contact-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 2rem;
+
+    .contact-info-list {
+      list-style: none;
     }
-    .contact-item { margin-bottom: 1.5rem; }
-    .contact-item:last-child { margin-bottom: 0; }
+
+    .contact-info-list li {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .contact-info-list li:last-child { border-bottom: none; }
+
     .contact-label {
       font-size: 0.82rem;
       font-weight: 700;
-      color: var(--khu-burgundy);
       text-transform: uppercase;
-      margin-bottom: 0.3rem;
+      color: var(--khu-burgundy);
+      margin-bottom: 0.25rem;
     }
+
     .map-frame {
       width: 100%;
-      height: 360px;
+      height: 100%;
+      min-height: 360px;
       border: 1px solid var(--border-color);
       border-radius: 10px;
+      display: block;
     }
 
     /* Footer */
     footer {
-      background: #18181b;
-      color: #d4d4d8;
-      padding: 3.5rem 1.5rem 2rem;
-      margin-top: auto;
+      background: #111827;
+      color: #9ca3af;
+      padding: 2.5rem 1.5rem;
+      font-size: 0.88rem;
     }
-    .footer-grid {
-      max-width: 1140px;
+
+    .footer-inner {
+      max-width: 1180px;
       margin: 0 auto;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
       flex-wrap: wrap;
-      gap: 2rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid #27272a;
+      justify-content: space-between;
+      gap: 1.5rem;
     }
-    .footer-logos {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 0.75rem;
-    }
-    .footer-logos img {
-      height: 40px;
-      width: auto;
-    }
-    .footer-title { color: #ffffff; font-size: 1.1rem; font-weight: 700; }
-    .footer-text { font-size: 0.9rem; color: #a1a1aa; line-height: 1.7; }
-    .copyright {
-      max-width: 1140px;
-      margin: 1.5rem auto 0;
-      text-align: center;
-      font-size: 0.84rem;
-      color: #71717a;
+
+    .footer-inner strong { color: #f3f4f6; }
+
+    @media (max-width: 960px) {
+      .notice-post {
+        grid-template-columns: 1fr;
+      }
+      .notice-images {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+      .notice-images a {
+        height: 220px;
+      }
     }
 
     @media (max-width: 820px) {
-      .nav-container { flex-direction: column; height: auto; padding: 0.85rem 1rem; gap: 0.65rem; }
+      .home-grid, .pi-card, .contact-grid, .research-item, .pi-info-grid, .alumni-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-container { flex-direction: column; height: auto; padding: 0.85rem 1rem; gap: 0.6rem; }
       nav ul { flex-wrap: wrap; justify-content: center; }
-      .home-grid, .pi-card, .contact-grid, .form-grid { grid-template-columns: 1fr; }
-      .slider-wrapper { aspect-ratio: 16 / 10; }
+      .hero h1 { font-size: 1.85rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header Navigation -->
+  <!-- Header & Navigation -->
   <header>
     <div class="nav-container">
-      <div class="brand-group" onclick="switchTab('home')">
-        <img src="khu-emblem.png" alt="KHU" class="brand-img" onerror="this.style.display='none'">
-        <img src="lab-logo.png" alt="BPL" class="brand-img" onerror="this.style.display='none'">
-        <span class="logo-text">Biophotonics <span>LAB</span></span>
+      <div class="brand" onclick="switchTab('home')">
+        <img src="khu-logo.png" alt="KHU Logo" class="brand-logo" onerror="this.style.display='none'">
+        <div class="brand-text">Biophotonics LAB <span>Kyung Hee Univ.</span></div>
       </div>
       <nav>
         <ul>
-          <li><button class="nav-tab active" data-tab="home" onclick="switchTab('home')">Home</button></li>
-          <li><button class="nav-tab" data-tab="research" onclick="switchTab('research')">Research</button></li>
-          <li><button class="nav-tab" data-tab="publications" onclick="switchTab('publications')">Publications</button></li>
-          <li><button class="nav-tab" data-tab="members" onclick="switchTab('members')">Members</button></li>
-          <li><button class="nav-tab" data-tab="news" onclick="switchTab('news')">News</button></li>
-          <li><button class="nav-tab" data-tab="contact" onclick="switchTab('contact')">Contact</button></li>
+          <li><button class="nav-btn active" data-tab="home" onclick="switchTab('home')">Home</button></li>
+          <li><button class="nav-btn" data-tab="research" onclick="switchTab('research')">Research</button></li>
+          <li><button class="nav-btn" data-tab="publications" onclick="switchTab('publications')">Publications</button></li>
+          <li><button class="nav-btn" data-tab="members" onclick="switchTab('members')">Members</button></li>
+          <li><button class="nav-btn" data-tab="notice" onclick="switchTab('notice')">News</button></li>
+          <li><button class="nav-btn" data-tab="contact" onclick="switchTab('contact')">Contact</button></li>
         </ul>
       </nav>
     </div>
   </header>
 
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Department of Biomedical Engineering · Kyung Hee University</div>
+      <h1>Biophotonics Laboratory</h1>
+      <p>Advancing Plasmonic Nanostructures, Surface-Enhanced Raman Spectroscopy (SERS), Optical Biosensors, and Wearable Biomedical Devices.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
   <main>
-    <!-- ================= 1. HOME TAB ================= -->
-    <div id="tab-home" class="tab-page active">
-      <section class="hero">
-        <div class="hero-inner">
-          <div class="hero-badge">Department of Biomedical Engineering · Kyung Hee University</div>
-          <h1>Biophotonics <span>Lab</span></h1>
-          <p class="hero-sub">Nanoscale Plasmonics, SERS Biosensing &amp; Optical Neural Interfaces</p>
 
-          <!-- Auto Slideshow (3 Photos) -->
-          <div class="slider-wrapper" id="heroSlider">
-            <div class="slide active">
-              <img src="slide-1.png" alt="Biophotonics Lab Setup" onerror="this.src='https://placehold.co/960x480/4f0103/d3ac52?text=Upload+slide-1.jpg+(Lab+Illustration)'">
-              <div class="slide-caption">Experimental Platform: Raman Spectroscopy &amp; Nanostructure Fabrication</div>
-            </div>
-            <div class="slide">
-              <img src="slide-2.jpg" alt="Lab Group Photo 1" onerror="this.src='https://placehold.co/960x480/3a0608/d3ac52?text=Upload+slide-2.jpg+(Group+Photo+1)'">
-              <div class="slide-caption">Biophotonics Lab Members at the 2026 Fall Conference of the Korean Sensors Society (Yeosu, Korea)</div>
-            </div>
-            <div class="slide">
-              <img src="slide-3.jpg" alt="Lab Group Photo 2" style="object-position: center 75%;">
-              <div class="slide-caption">Biophotonics Lab Members at the 67th KOSOMBE Spring Conference (Jeju, Korea)</div>
-            </div>
-          
-
-            <button class="slider-btn slider-prev" onclick="moveSlide(-1)" aria-label="Previous">&#10094;</button>
-            <button class="slider-btn slider-next" onclick="moveSlide(1)" aria-label="Next">&#10095;</button>
-            <div class="slider-dots" id="sliderDots">
-              <button class="dot active" onclick="goSlide(0)"></button>
-              <button class="dot" onclick="goSlide(1)"></button>
-              <button class="dot" onclick="goSlide(2)"></button>
-
-            </div>
+    <!-- 1. HOME TAB -->
+    <section id="tab-home" class="tab-section active">
+      <div class="home-grid">
+        <div class="card welcome-text">
+          <h3>Welcome to Biophotonics Lab</h3>
+          <p>
+            Welcome to the <strong>Biophotonics Laboratory</strong> at Kyung Hee University, directed by Prof. Kyung Min Byun. Our research focuses on understanding light–matter interactions at the nanoscale and translating plasmonic and optical technologies into high-sensitivity biomedical diagnostics and healthcare platforms.
+          </p>
+          <p>
+            경희대학교 생체의공학과 <strong>바이오포토닉스 연구실(Biophotonics Lab)</strong>은 나노광학 및 플라즈모닉스(Plasmonics) 원리를 기반으로 고감도 광학 바이오센서, 표면증강 라만 분광(SERS) 진단 플랫폼, 그리고 차세대 웨어러블 생체신호 모니터링 기기를 연구하고 있습니다.
+          </p>
+          <div class="highlight-box">
+            <strong>Prospective Students (대학원생 및 학부연구생 모집):</strong><br>
+            We welcome motivated M.S., Ph.D., and undergraduate students interested in biophotonics, nanobiosensors, and biomedical instrumentation. Please contact Prof. Kyung Min Byun (<a href="mailto:kmbyun@khu.ac.kr" style="color:var(--khu-burgundy); font-weight:600;">kmbyun@khu.ac.kr</a>).
           </div>
         </div>
-      </section>
 
-      <!-- Home 2-Column Overview -->
-      <div class="container">
-        <div class="home-grid">
-          <div class="overview-box">
-            <div class="box-header">
-              <h2 class="box-title">About Our Lab</h2>
-              <button class="link-btn" onclick="switchTab('research')">Research Areas &rarr;</button>
+        <div style="display:flex; flex-direction:column; gap:1.75rem;">
+          <!-- Gallery Slider -->
+          <div class="slider-container" id="homeSlider">
+            <div class="slide active">
+              <img src="slide-1.jpg" alt="Group Photo">
+              <div class="slide-caption">Biophotonics Lab Members at Kyung Hee University</div>
             </div>
-            <p class="about-text">
-              At the <strong>Biophotonics Lab</strong>, we harness the unique optical properties of nanoscale plasmonic materials and structures to develop integrated platforms for <strong>biosensing, early disease diagnostics, bioimaging, and neural engineering</strong>.
-            </p>
-            <p class="about-text" style="margin-bottom:0;">
-              Combining biomedical engineering, optics, electronics, and nanobiotechnology, our research spans the full cycle from nanostructure design and fabrication to optical characterization.
-            </p>
+            <div class="slide">
+              <img src="slide-2.jpg" alt="Conference Presentation">
+              <div class="slide-caption">2026 Fall Conference of the Korean Sensors Society (Yeosu)</div>
+            </div>
+            <div class="slide">
+              <img src="slide-3.jpg" alt="KOSOMBE 2026">
+              <div class="slide-caption">2026 KOSOMBE Spring Conference (Jeju)</div>
+            </div>
+            <button class="slider-btn slider-prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="slider-btn slider-next" onclick="moveSlide(1)">&#10095;</button>
           </div>
 
-          <div class="overview-box">
-            <div class="box-header">
-              <h2 class="box-title">Recent News</h2>
-              <button class="link-btn" onclick="switchTab('news')">View All &rarr;</button>
-            </div>
+          <!-- Recent News Preview -->
+          <div class="card">
+            <h3>
+              Recent News
+              <span style="font-size:0.82rem; font-weight:500; cursor:pointer; color:var(--text-muted);" onclick="switchTab('notice')">View all &rarr;</span>
+            </h3>
             <div id="homeNoticePreview"></div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ================= 2. RESEARCH TAB ================= -->
-    <div id="tab-research" class="tab-page">
-      <div class="page-banner">
-        <h2>Research Areas</h2>
-        <p>Multidisciplinary integration of nanophotonics, biomedical engineering, and electronics</p>
-      </div>
-      <div class="container">
-        <div class="grid-3">
-          <div class="card">
-            <span class="card-num">01 / RAMAN &amp; EARLY DIAGNOSTICS</span>
-            <h3>SERS-Based Early Disease Diagnostics</h3>
-            <p>Surface-enhanced Raman spectroscopy (SERS) biosensors and sandwich immunoassay platforms for rapid, ultrasensitive detection of clinical biomarkers and early-stage diseases.</p>
-          </div>
-          <div class="card">
-            <span class="card-num">02 / PLASMONIC NANOSTRUCTURES</span>
-            <h3>Nanostructure Design &amp; SPR Sensing</h3>
-            <p>Electromagnetic simulation (FDTD) and convective self-assembly (CSA) fabrication of metallic nanogap, nanograting, and nanocrown substrates to maximize plasmonic sensitivity.</p>
-          </div>
-          <div class="card">
-            <span class="card-num">03 / BIOIMAGING &amp; NEURAL ENGINEERING</span>
-            <h3>Nanoscale Bioimaging &amp; Neural Interfaces</h3>
-            <p>Plasmon-enhanced optical neural stimulation, non-invasive neuromodulation, and wearable biophotonic interfaces bridging photonics with biomedical electronics.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- 2. RESEARCH TAB -->
+    <section id="tab-research" class="tab-section">
+      <h2 class="section-title">Research Areas</h2>
+      <p class="section-subtitle">Core interdisciplinary research themes in nanophotonics, biosensing, and medical devices.</p>
 
-    <!-- ================= 3. PUBLICATIONS TAB ================= -->
-    <div id="tab-publications" class="tab-page">
-      <div class="page-banner">
-        <h2>Publications</h2>
-        <p>Complete list of peer-reviewed international journal articles (*Corresponding author)</p>
-      </div>
-      <div class="container">
-        <div class="pub-controls">
-          <div class="filter-btns" id="filterBtns">
-            <button class="filter-btn active" data-filter="all">All (74)</button>
-            <button class="filter-btn" data-filter="2026">2026</button>
-            <button class="filter-btn" data-filter="2023-2025">2023–2025</button>
-            <button class="filter-btn" data-filter="2018-2022">2018–2022</button>
-            <button class="filter-btn" data-filter="2005-2017">2005–2017</button>
-          </div>
-          <input type="text" id="pubSearch" class="pub-search" placeholder="Search title, author, or journal..." />
-        </div>
-
-        <div class="pub-meta-bar">
-          <span id="pubCount">Showing 74 publications</span>
-          <span>* Indicates corresponding author</span>
-        </div>
-
-        <div class="pub-list" id="pubList"></div>
-      </div>
-    </div>
-
-    <!-- ================= 4. MEMBERS TAB ================= -->
-    <div id="tab-members" class="tab-page">
-      <div class="page-banner">
-        <h2>Members</h2>
-        <p>Principal Investigator, Current Researchers, and Alumni</p>
-      </div>
-      <div class="container">
-        <!-- Professor -->
-        <h3 class="sub-heading">Principal Investigator</h3>
-        <div class="pi-card">
-          <div class="photo-box">
-            <img src="prof-byun.jpg" alt="Prof. Kyung Min Byun" onerror="this.parentElement.innerHTML='PI'">
+      <div class="research-list">
+        <div class="research-item">
+          <div class="research-thumb">
+            <img src="research-sers.jpg" alt="Plasmonic SERS Platform">
           </div>
           <div>
-            <div class="member-role">Professor</div>
-            <div class="member-name" style="font-size:1.35rem; color:var(--khu-burgundy); margin-bottom:0.4rem;">변 경 민 (Kyung Min Byun, Ph.D.)</div>
-            <p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:0.9rem; line-height:1.6;">
-              경희대학교 전자정보대학 생체의공학과<br>
-              경희대학교 전자정보대학 전자정보융합공학과<br>
-              강동경희대병원 (겸임)
-            </p>
-            <p style="font-size:0.92rem; line-height:1.65;">
-              <strong>Email:</strong> kmbyun@khu.ac.kr<br>
-              <strong>Office:</strong> 전자정보대학 709호
+            <div class="research-num">Research Theme 01</div>
+            <h3>Plasmonic Nanostructures &amp; SERS Biosensors</h3>
+            <p>
+              We design and fabricate cost-effective, large-area plasmonic substrates—such as convective self-assembled nanoparticles, metallic nanogaps, and porous biomaterials (silk fibroin, nitrocellulose, chitosan)—to achieve ultra-sensitive Surface-Enhanced Raman Spectroscopy (SERS) and Localized Surface Plasmon Resonance (LSPR) detection of disease biomarkers, glucose, and pathogens.
             </p>
           </div>
+        </div>
+
+        <div class="research-item">
+          <div class="research-thumb">
+            <img src="research-fiber.jpg" alt="Fiber-Optic Raman Probe">
+          </div>
           <div>
-            <strong style="color:var(--khu-burgundy); display:block; margin-bottom:0.65rem; font-size:0.95rem;">Education</strong>
-            <div class="edu-item">
-              <span class="edu-period">2002.03 – 2007.02</span>
-              서울대학교 전기컴퓨터공학부 공학박사<br>
-              <span class="edu-advisor">지도교수: 김성준</span>
-            </div>
-            <div class="edu-item">
-              <span class="edu-period">2000.03 – 2002.02</span>
-              서울대학교 전기컴퓨터공학부 공학석사<br>
-              <span class="edu-advisor">지도교수: 이병호</span>
-            </div>
-            <div class="edu-item">
-              <span class="edu-period">1996.03 – 2000.02</span>
-              서울대학교 전기공학부 공학사
-            </div>
+            <div class="research-num">Research Theme 02</div>
+            <h3>Fiber-Optic &amp; Miniaturized Point-of-Care Optical Systems</h3>
+            <p>
+              To translate optical spectroscopy from the benchtop to clinical and field settings, we develop hollow-core fiber SERS probes, 3D-printed multimodal Raman probes, and portable optical readers capable of rapid, label-free molecular diagnosis with high signal-to-noise ratios.
+            </p>
           </div>
         </div>
 
-        <!-- Current Members -->
-        <h3 class="sub-heading">
-          <span>Current Members</span>
-          <button class="btn-write admin-only" onclick="toggleMemberWriter()">+ 인원 추가 도우미</button>
-        </h3>
-
-        <!-- Admin Member Code Generator -->
-        <div id="memberWriterPanel" class="writer-panel">
-          <h4 style="color:var(--khu-burgundy); margin-bottom:0.85rem;">신규 멤버 카드 코드 생성기 (생성된 코드를 index.html의 currentMembers 배열에 붙여넣으세요)</h4>
-          <div class="form-grid">
-            <div class="form-group">
-              <label>과정 (Role)</label>
-              <select id="mRole">
-                <option value="M.S. Student">M.S. Student</option>
-                <option value="Ph.D. Student">Ph.D. Student</option>
-                <option value="Integrated M.S./Ph.D. Student">Integrated M.S./Ph.D. Student</option>
-                <option value="Undergraduate Student">Undergraduate Student</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>한글 이름 (외국인 학생은 영문 이름)</label>
-              <input type="text" id="mName" placeholder="예: 홍 길 동" />
-            </div>
+        <div class="research-item">
+          <div class="research-thumb">
+            <img src="research-neuro.jpg" alt="Optical Neural Modulation">
           </div>
-          <div class="form-grid">
-            <div class="form-group">
-              <label>영문 이름</label>
-              <input type="text" id="mEn" placeholder="예: Gil Dong Hong" />
-            </div>
-            <div class="form-group">
-              <label>소속 학과</label>
-              <input type="text" id="mDept" placeholder="예: 생체의공학과 또는 전자정보융합공학과" />
-            </div>
-          </div>
-          <div class="form-grid">
-            <div class="form-group">
-              <label>이메일</label>
-              <input type="text" id="mEmail" placeholder="예: example@khu.ac.kr" />
-            </div>
-            <div class="form-group">
-              <label>사진 파일명</label>
-              <input type="text" id="mPhoto" placeholder="예: member-hong.jpg" />
-            </div>
-          </div>
-          <button class="btn-write" type="button" onclick="generateMemberCode()">미리보기 추가 &amp; 코드 생성</button>
-          <textarea id="generatedMemberCode" class="code-output" readonly placeholder="여기에 생성된 멤버 코드가 표시됩니다."></textarea>
-        </div>
-
-        <div class="member-grid" id="currentMembersGrid"></div>
-
-        <!-- Alumni -->
-        <h3 class="sub-heading">Alumni</h3>
-        <div class="alumni-grid">
-          <div class="alumni-card">
-            <h4>Ph.D. </h4>
-            <ul class="alumni-list">
-              <li><strong>정창진</strong> ('23)*</li>
-              <li><strong>Rehab Hassan</strong> ('20)*</li>
-              <li><strong>최문식</strong> ('20)</li>
-              <li><strong>Sherif El-Gohary</strong> ('16)</li>
-              <li><strong>김낙현</strong> ('15)</li>
-            </ul>
-          </div>
-
-          <div class="alumni-card">
-            <h4>M.S. </h4>
-            <ul class="alumni-list alumni-list-2col">
-              <li><strong>육경민</strong> ('25)</li>
-              <li><strong>장우철</strong> ('24)*</li>
-              <li><strong>권혁주</strong> ('24)</li>
-              <li><strong>조용준</strong> ('24)</li>
-              <li><strong>강태영</strong> ('23)</li>
-              <li><strong>지영상</strong> ('23)*</li>
-              <li><strong>신동민</strong> ('21)</li>
-              <li><strong>최지현</strong> ('21)</li>
-              <li><strong>박재완</strong> ('19)</li>
-              <li><strong>이재연</strong> ('17)</li>
-              <li><strong>송재철</strong> ('16)</li>
-              <li><strong>엄세영</strong> ('16)</li>
-              <li><strong>최문식</strong> ('15)</li>
-              <li><strong>최종민</strong> ('14)</li>
-              <li><strong>정우경</strong> ('13)</li>
-            </ul>
-          </div>
-
-          <div class="alumni-card">
-            <h4>Undergraduate Student</h4>
-            <ul class="alumni-list">
-              <li><strong>백혜원</strong> (Department of Biomedical Engineering, KyungHee University, 2026.03.-2026.08.)</li>
-            </ul>
-          </div>
-        </div>
-        <div class="alumni-note">* Co-advised Alumni (공동지도 졸업생)</div>
-      </div>
-    </div>
-
-    <!-- ================= 5. NEWS TAB ================= -->
-    <div id="tab-news" class="tab-page">
-      <div class="page-banner">
-        <h2>News</h2>
-        <p>Lab announcements, conference posters, and awards</p>
-      </div>
-      <div class="container">
-        <div class="notice-toolbar">
-          <span style="font-size:0.9rem; color:var(--text-muted);">Latest news &amp; posters from Biophotonics Lab</span>
-          <button class="btn-write admin-only" onclick="toggleWriter()">+ 새 뉴스/포스터 작성 도우미</button>
-        </div>
-
-        <!-- Admin News Code Generator Panel -->
-        <div id="writerPanel" class="writer-panel">
-          <h4 style="color:var(--khu-burgundy); margin-bottom:0.85rem;">새 뉴스/포스터 코드 생성기 (생성된 코드를 index.html의 newsItems 배열 맨 위에 붙여넣으세요)</h4>
-          <div class="form-grid">
-            <div class="form-group">
-              <label>카테고리</label>
-              <select id="nCat">
-                <option value="Award">Award (수상)</option>
-                <option value="Poster">Poster (학회 포스터)</option>
-                <option value="Conference">Conference (학회)</option>
-                <option value="Notice">Notice (공지)</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>날짜 (예: 2026. 11. 12)</label>
-              <input type="text" id="nDate" placeholder="2026. 11. 12" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label>제목</label>
-            <input type="text" id="nTitle" placeholder="예: 2026 추계학술대회 포스터 발표" />
-          </div>
-          <div class="form-group">
-            <label>본문 내용</label>
-            <textarea id="nBody" rows="3" placeholder="내용을 입력하세요."></textarea>
-          </div>
-          <div class="form-group">
-            <label>첨부 이미지/포스터 파일명 (쉼표로 구분, GitHub에 올린 파일명 입력)</label>
-            <input type="text" id="nImgs" placeholder="예: poster-2026.jpg, photo1.jpg" />
-          </div>
-          <button class="btn-write" type="button" onclick="generateNoticeCode()">미리보기 추가 &amp; 코드 생성</button>
-          <textarea id="generatedCode" class="code-output" readonly placeholder="여기에 생성된 코드가 표시됩니다."></textarea>
-        </div>
-
-        <!-- News Posts Container -->
-        <div id="noticeList"></div>
-      </div>
-    </div>
-
-    <!-- ================= 6. CONTACT TAB ================= -->
-<!-- ================= 6. CONTACT TAB ================= -->
-    <div id="tab-contact" class="tab-page">
-      <div class="page-banner">
-        <h2>Contact</h2>
-        <p>Location and Contact Information</p>
-      </div>
-      <div class="container">
-        <div class="contact-grid">
-          <div class="contact-card" style="display:flex; flex-direction:column; justify-content:center;">
-            <div class="contact-item">
-              <div class="contact-label">Laboratory</div>
-              <p><strong>Biophotonics Lab (바이오포토닉스 연구실)</strong><br>
-              Department of Biomedical Engineering, Kyung Hee University</p>
-            </div>
-            <div class="contact-item">
-              <div class="contact-label">Location</div>
-              <p><strong>Room 710</strong> (PI Office: Rm 709), College of Electronics and Information<br>
-              1732 Deogyeong-daero, Giheung-gu, Yongin-si, Gyeonggi-do 17104, Korea<br>
-              <span style="color:#6b7280; font-size:0.88rem;">(17104) 경기도 용인시 기흥구 덕영대로 1732 경희대학교 전자정보대학관 710호</span></p>
-            </div>
-            <div class="contact-item">
-              <div class="contact-label">Contact</div>
-              <p>Prof. Kyung Min Byun · <a href="mailto:kmbyun@khu.ac.kr" style="color:#780205; font-weight:600; text-decoration:none;">kmbyun@khu.ac.kr</a></p>
-            </div>
-          </div>
-
           <div>
-            <iframe
-              class="map-frame"
-              src="https://maps.google.com/maps?q=경희대학교%20국제캠퍼스%20전자정보대학관&t=&z=16&ie=UTF8&iwloc=&output=embed"
-              loading="lazy">
-            </iframe>
+            <div class="research-num">Research Theme 03</div>
+            <h3>Optical Neuromodulation &amp; Wearable Biomedical Devices</h3>
+            <p>
+              We explore near-infrared photothermal neural stimulation mediated by gold nanorods as well as flexible, sustainable wearable sensors—including upcycled chitosan-based electronic skin, digital stethoscopes, and pulse oximetry imaging systems—for continuous physiological monitoring and human–machine interfaces.
+            </p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- 3. PUBLICATIONS TAB -->
+    <section id="tab-publications" class="tab-section">
+      <h2 class="section-title">Publications</h2>
+      <p class="section-subtitle">Peer-reviewed international journal articles (*Corresponding author).</p>
+
+      <div class="pub-controls">
+        <div class="year-filters" id="yearFilters"></div>
+        <input type="text" id="pubSearch" class="pub-search" placeholder="Search title, author, or journal..." oninput="renderPublications()">
+      </div>
+
+      <ul class="pub-list" id="pubList"></ul>
+    </section>
+
+    <!-- 4. MEMBERS TAB -->
+    <section id="tab-members" class="tab-section">
+      <h2 class="section-title">Principal Investigator</h2>
+      <p class="section-subtitle">Faculty Director of the Biophotonics Laboratory.</p>
+
+      <div class="pi-card">
+        <img src="prof-byun.jpg" alt="Prof. Kyung Min Byun" class="pi-photo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22220%22 height=%22290%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23e5e7eb%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2216%22 fill=%22%236b7280%22>Prof. K. M. Byun</text></svg>'">
+        <div>
+          <div class="pi-header">
+            <h3>변 경 민 (Kyung Min Byun, Ph.D.)</h3>
+            <div class="pi-role">Professor, Department of Biomedical Engineering, Kyung Hee University</div>
+          </div>
+          <p style="font-size:0.92rem; color:#374151;">
+            <strong>Office:</strong> Room 709, College of Electronics and Information &nbsp;|&nbsp;
+            <strong>Tel:</strong> +82-31-201-3769 &nbsp;|&nbsp;
+            <strong>E-mail:</strong> <a href="mailto:kmbyun@khu.ac.kr" style="color:var(--khu-burgundy); font-weight:600;">kmbyun@khu.ac.kr</a>
+          </p>
+          <div class="pi-info-grid">
+            <div>
+              <h4>Education</h4>
+              <ul>
+                <li><strong>Ph.D.</strong> in Electrical Engineering, Seoul National University (2006)</li>
+                <li><strong>M.S.</strong> in Electrical Engineering, Seoul National University (2002)</li>
+                <li><strong>B.S.</strong> in Electrical Engineering, Seoul National University (2000)</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Academic Career</h4>
+              <ul>
+                <li><strong>2018.03 – Present:</strong> Professor, Dept. of Biomedical Engineering, Kyung Hee Univ.</li>
+                <li><strong>2014.03 – 2015.02:</strong> Visiting Scholar, Dept. of Nanoengineering, UC San Diego</li>
+                <li><strong>2012.03 – 2018.02:</strong> Associate Professor, Kyung Hee Univ.</li>
+                <li><strong>2008.03 – 2012.02:</strong> Assistant Professor, Kyung Hee Univ.</li>
+                <li><strong>2007.03 – 2008.02:</strong> Post-doc, Dept. of Biomedical Engineering, Cornell Univ.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title">Current Members</h2>
+      <p class="section-subtitle">Graduate and Undergraduate Researchers.</p>
+      <div class="members-grid" id="currentMembersGrid"></div>
+
+      <h2 class="section-title">Alumni</h2>
+      <p class="section-subtitle">Graduated Ph.D. and M.S. Researchers (*Co-advised).</p>
+      <div class="alumni-grid">
+        <div class="alumni-box">
+          <h4>Ph.D. Alumni (박사 졸업생)</h4>
+          <ul class="alumni-list" id="phdAlumniList"></ul>
+        </div>
+        <div class="alumni-box">
+          <h4>M.S. Alumni (석사 졸업생)</h4>
+          <ul class="alumni-list alumni-list-2col" id="msAlumniList"></ul>
+        </div>
+        <div class="alumni-box">
+          <h4>Undergraduate Student</h4>
+          <ul class="alumni-list" id="undergradAlumniList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. NEWS TAB -->
+    <section id="tab-notice" class="tab-section">
+      <h2 class="section-title">News &amp; Activities</h2>
+      <p class="section-subtitle">Conference presentations, awards, and laboratory updates.</p>
+      <div id="noticeList"></div>
+    </section>
+
+    <!-- 6. CONTACT TAB -->
+    <section id="tab-contact" class="tab-section">
+      <h2 class="section-title">Contact &amp; Location</h2>
+      <p class="section-subtitle">How to reach the Biophotonics Laboratory at Kyung Hee University Global Campus.</p>
+
+      <div class="contact-grid">
+        <div class="card">
+          <ul class="contact-info-list">
+            <li>
+              <div class="contact-label">Laboratory Location (연구실 위치)</div>
+              <div>Room 710 (PI Office: Rm 709), College of Electronics and Information<br>Kyung Hee University (Global Campus), 1732 Deogyeong-daero, Giheung-gu, Yongin-si, Gyeonggi-do 17104, Republic of Korea</div>
+              <div style="font-size:0.88rem; color:var(--text-muted); margin-top:0.3rem;">(17104) 경기도 용인시 기흥구 덕영대로 1732 경희대학교 국제캠퍼스 전자정보대학관 710호</div>
+            </li>
+            <li>
+              <div class="contact-label">Principal Investigator</div>
+              <div>Prof. Kyung Min Byun (변경민 교수)</div>
+            </li>
+            <li>
+              <div class="contact-label">Phone &amp; Fax</div>
+              <div>Tel (PI Office): +82-31-201-3769 &nbsp;|&nbsp; Lab: +82-31-201-2941 &nbsp;|&nbsp; Fax: +82-31-202-9348</div>
+            </li>
+            <li>
+              <div class="contact-label">E-mail</div>
+              <div><a href="mailto:kmbyun@khu.ac.kr" style="color:var(--khu-burgundy); font-weight:600;">kmbyun@khu.ac.kr</a></div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <iframe
+            class="map-frame"
+            src="https://maps.google.com/maps?q=경희대학교%20국제캠퍼스%20전자정보대학관&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Footer -->
   <footer>
-    <div class="footer-grid">
+    <div class="footer-inner">
       <div>
-        <div class="footer-logos">
-          <img src="khu-emblem.png" alt="Kyung Hee University" onerror="this.style.display='none'">
-          <img src="lab-logo.png" alt="Biophotonics Lab" onerror="this.style.display='none'">
-          <div>
-            <div class="footer-title">바이오포토닉스 연구실 · Biophotonics Lab</div>
-            <div style="font-size:0.85rem; color:var(--khu-gold);">Department of Biomedical Engineering, Kyung Hee University</div>
-          </div>
-        </div>
-        <p class="footer-text">
-          (17104) 경기도 용인시 기흥구 덕영대로 1732 경희대학교 전자정보대학관 710호<br>
-          Room 710, College of Electronics and Information, 1732 Deogyeong-daero, Giheung-gu, Yongin-si, Gyeonggi-do, Korea
-        </p>
+        <strong>Biophotonics Laboratory</strong> · Department of Biomedical Engineering, Kyung Hee University<br>
+        Room 710, College of Electronics and Information, 1732 Deogyeong-daero, Giheung-gu, Yongin-si, Gyeonggi-do 17104, Korea
       </div>
-    </div>
-    <div class="copyright">
-      &copy; 2026 Biophotonics Lab, Kyung Hee University. All rights reserved.
+      <div>
+        Tel: +82-31-201-3769 | E-mail: kmbyun@khu.ac.kr<br>
+        &copy; Biophotonics Lab, Kyung Hee University. All Rights Reserved.
+      </div>
     </div>
   </footer>
 
+  <!-- Data & Dynamic Rendering Script (Real-time JSON Fetch) -->
   <script>
-    /* ================= ADMIN MODE CHECK (?admin=1) ================= */
-    if (new URLSearchParams(window.location.search).get('admin') === '1') {
-      document.body.classList.add('is-admin');
-    }
+    let currentMembers = [];
+    let alumniData = { phd: [], ms: [], undergrad: [] };
+    let newsItems = [];
+    let publications = [];
+    let selectedYear = 'ALL';
 
-    /* ================= TAB NAVIGATION ================= */
+    // Tab Switching
     function switchTab(tabId) {
-      document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-section').forEach(sec => sec.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
 
-      const targetPage = document.getElementById('tab-' + tabId);
-      const targetBtn = document.querySelector(`.nav-tab[data-tab="${tabId}"]`);
-      if (targetPage) targetPage.classList.add('active');
-      if (targetBtn) targetBtn.classList.add('active');
+      document.getElementById('tab-' + tabId).classList.add('active');
+      const activeBtn = document.querySelector(`.nav-btn[data-tab="${tabId}"]`);
+      if (activeBtn) activeBtn.classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    /* ================= HERO AUTO SLIDER ================= */
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('#heroSlider .slide');
-    const dots = document.querySelectorAll('#sliderDots .dot');
-
-    function showSlide(index) {
+    // Home Slider
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    function moveSlide(step) {
       if (!slides.length) return;
-      currentSlide = (index + slides.length) % slides.length;
-      slides.forEach((s, i) => s.classList.toggle('active', i === currentSlide));
-      dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+      slides[slideIndex].classList.remove('active');
+      slideIndex = (slideIndex + step + slides.length) % slides.length;
+      slides[slideIndex].classList.add('active');
     }
-    function moveSlide(step) { showSlide(currentSlide + step); }
-    function goSlide(index) { showSlide(index); }
-    setInterval(() => moveSlide(1), 4500);
+    setInterval(() => moveSlide(1), 5000);
 
-    /* ================= CURRENT MEMBERS DATA & RENDER ================= */
-    const currentMembers = [
-      {
-        role: "M.S. Student",
-        name: "손 훈 국",
-        enName: "Hun Guk Son",
-        dept: "Electronics and Information Convergence Engineering",
-        email: "guk1323@khu.ac.kr",
-        photo: "member-son.jpg",
-        fallback: "손"
-      },
-      {
-        role: "M.S. Student",
-        name: "Joyeta Mazumder",
-        enName: "Joyeta Mazumder",
-        dept: "Electronics and Information Convergence Engineering",
-        email: "joyetam14@khu.ac.kr",
-        photo: "member-joyeta.jpg",
-        fallback: "JM"
-      },
-      {
-        role: "Undergraduate Student",
-        name: "박 인 기",
-        enName: "In Gi Park",
-        dept: "Biomedical Engineering",
-        email: "pkt317@khu.ac.kr",
-        photo: "member-park.jpg",
-        fallback: "박"
-      },
-      {
-        role: "Undergraduate Student",
-        name: "배 정 현",
-        enName: "Jeong Hyeon Bae",
-        dept: "Biomedical Engineering",
-        email: "jhbae0605@khu.ac.kr",
-        photo: "member-bae.jpg",
-        fallback: "배"
-      }
-    ];
-
+    // Render Current Members & Alumni
     function renderMembers() {
       const grid = document.getElementById('currentMembersGrid');
       grid.innerHTML = currentMembers.map(m => `
         <div class="member-card">
-          <div class="member-photo">
-            <img src="${m.photo}" alt="${m.enName}" onerror="this.parentElement.innerHTML='${m.fallback}'">
-          </div>
+          ${m.photo ? `
+            <img src="${m.photo}" alt="${m.enName}" class="member-photo"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="avatar-placeholder" style="display:none;">${m.fallback || ''}</div>
+          ` : `
+            <div class="avatar-placeholder">${m.fallback || ''}</div>
+          `}
           <div class="member-role">${m.role}</div>
           <div class="member-name">${m.name}</div>
           <div class="member-en">${m.enName}</div>
           <div class="member-meta">
-           <div style="margin-bottom: 0.5rem;">${m.dept}</div>
-          ${m.email}
+            <div style="margin-bottom: 0.5rem;">${m.dept}</div>
+            ${m.email}
           </div>
         </div>
       `).join('');
+
+      document.getElementById('phdAlumniList').innerHTML = (alumniData.phd || []).map(a =>
+        `<li><strong>${a.name}</strong> ${a.year || ''}</li>`
+      ).join('');
+
+      document.getElementById('msAlumniList').innerHTML = (alumniData.ms || []).map(a =>
+        `<li><strong>${a.name}</strong> ${a.year || ''}</li>`
+      ).join('');
+
+      document.getElementById('undergradAlumniList').innerHTML = (alumniData.undergrad || []).map(a =>
+        `<li><strong>${a.name}</strong> ${a.info || ''}</li>`
+      ).join('');
     }
 
-    function toggleMemberWriter() {
-      document.getElementById('memberWriterPanel').classList.toggle('open');
-    }
-
-    function generateMemberCode() {
-      const role = document.getElementById('mRole').value;
-      const name = document.getElementById('mName').value.trim();
-      const enName = document.getElementById('mEn').value.trim() || name;
-      const dept = document.getElementById('mDept').value.trim();
-      const email = document.getElementById('mEmail').value.trim();
-      const photo = document.getElementById('mPhoto').value.trim();
-      if (!name) { alert("이름을 입력해주세요."); return; }
-
-      const newMember = {
-        role,
-        name,
-        enName,
-        dept,
-        email,
-        room: "전자정보대학 710호",
-        photo,
-        fallback: name.charAt(0)
-      };
-      currentMembers.push(newMember);
-      renderMembers();
-      document.getElementById('generatedMemberCode').value = JSON.stringify(newMember, null, 2) + ",";
-    }
-
-    /* ================= NEWS DATA & RENDER ================= */
-    const newsItems = [
-    {
-        "category": "Conference",
-        "date": "2026. 11. 04. - 2026. 11. 07.",
-        "title": "제13차 아시아-태평양 의용생체공학 학술대회 APCMBE 2026 (Daegu, Korea)",
-        "body": "본 연구실 소속 박인기, 배정현 학부연구생이 2026년 11월 4일부터 7일까지 대구 EXCO에서 개최된 제13차 아시아-태평양 의용생체공학 학술대회(APCMBE 2026)에 참가하여 포스터 발표를 성공적으로 마쳤습니다. In Gi Park and Jeong Hyeon Bae (Undergraduate Students) successfully presented posters at the 13th IFMBE Asian Pacific Conference on Medical and Biological Engineering (APCMBE 2026) held at EXCO, Daegu (November 4–7, 2026).",
-        "images": [
-          "poster-5.png",
-          "poster-6.png"
-        ]
-      },
-      {
-        category: "Award",
-        date: "2026. 09. 18.",
-        title: "2026 한국센서학회 추계학술대회 — Joyeta Mazumder 우수논문상 수상",
-        body: "본 연구실 석사과정 Joyeta Mazumder 학생이 2026 한국센서학회 추계학술대회에서 우수논문상을 수상하였습니다. 진심으로 축하합니다! (Congratulations to Joyeta Mazumder for receiving the Outstanding Paper Award!)",
-        images: ["notice-award-1.jpg", "notice-award-2.jpg"]
-      },
-      {
-        "category": "Conference",
-        "date": "2026. 09. 16. - 2026. 09. 18.",
-        "title": "2026년 한국센서학회 추계학술대회 2026 Fall Conference of the Korean Sensors Society (Yeosu, Korea)",
-        "body": "본 연구실 소속 손훈국, Joyeta Mazumder 석사과정이 2026년 9월 16일부터 18일까지 여수 디오션리조트에서 개최된 2026년 한국센서학회 추계학술대회에 참가하여 포스터 발표를 성공적으로 마쳤습니다. Hun Guk Son and Joyeta Mazumder (M.S. Students) successfully presented posters at the 2026 Fall Conference of the Korean Sensors Society held at The Ocean Resort, Yeosu (September 16–18, 2026).",
-        "images": [
-          "poster-2.png",
-          "poster-3.png"
-        ]
-      },
-      {
-        "category": "Conference",
-        "date": "2026. 05. 27. - 2026. 05. 29.",
-        "title": "제33회 광전자 및 광통신 학술대회 COOC 2026 (Busan, Korea)",
-        "body": "본 연구실 소속 손훈국 석사과정이 2026년 5월 27일부터 29일까지 한화 리조트 해운대에서 개최된 제33회 광전자 및 광통신 학술대회(COOC 2026)에 참가하여 포스터 발표를 성공적으로 마쳤습니다. Hun Guk Son (M.S. Student) successfully presented a poster at the 33rd Conference on Optoelectronics and Optical Communications (COOC 2026) held at Hanwha Resort Haeundae, Busan (May 27–29, 2026).",
-        "images": [
-          "poster-4.png"
-        ]
-      },
-      {
-        "category": "Conference",
-        "date": "2026. 05. 07. - 2026. 05. 09.",
-        "title": "2026년도 제67회 대한의용생체공학회 춘계학술대회 KOSOMBE 2026 Spring Conference (Jeju, Korea)",
-        "body": "본 연구실 소속 박인기 학부연구생이 2026년 5월 7일부터 9일까지 제주신화월드리조트에서 개최된 제67회 대한의용생체공학회 춘계학술대회(KOSOMBE 2026)에 참가하여 포스터 발표를 성공적으로 마쳤습니다. In Gi Park (Undergraduate Student) successfully presented a poster at the 67th KOSOMBE Spring Conference held at Jeju Shinhwa World Resort (May 7–9, 2026).",
-        "images": [
-          "slide-3.jpg",
-          "poster-1.png"
-        ]
-        },
-      
-      ];
-
+    // Render News & Home Preview
     function renderNotices() {
       const homePreview = document.getElementById('homeNoticePreview');
-      const noticeList = document.getElementById('noticeList');
-
       homePreview.innerHTML = newsItems.slice(0, 3).map(n => `
-        <div class="mini-notice-item" onclick="switchTab('news')">
-          <div class="mini-notice-meta"><span class="badge-cat">${n.category}</span> ${n.date}</div>
-          <div class="mini-notice-title">${n.title}</div>
+        <div class="notice-preview-item" onclick="switchTab('notice')">
+          <div class="notice-preview-date">${n.date} · ${n.category}</div>
+          <div class="notice-preview-title">${n.title}</div>
         </div>
       `).join('');
 
-noticeList.innerHTML = newsItems.map(n => {
-        const hasImg = n.images && n.images.length > 0;
+      const noticeList = document.getElementById('noticeList');
+      noticeList.innerHTML = newsItems.map(n => {
+        const imgs = (n.images || []).map(item => typeof item === 'string' ? item : item.image).filter(Boolean);
+        const hasImg = imgs.length > 0;
         return `
           <article class="notice-post ${hasImg ? '' : 'no-image'}">
             <div class="notice-left">
@@ -1334,7 +1148,7 @@ noticeList.innerHTML = newsItems.map(n => {
             </div>
             ${hasImg ? `
               <div class="notice-images">
-                ${n.images.map(img => `<a href="${img}" target="_blank" title="클릭하여 원본 크기로 보기"><img src="${img}" alt="News attachment" onerror="this.parentElement.style.display='none'"></a>`).join('')}
+                ${imgs.map(img => `<a href="${img}" target="_blank" title="클릭하여 원본 크기로 보기"><img src="${img}" alt="News attachment" onerror="this.parentElement.style.display='none'"></a>`).join('')}
               </div>
             ` : ''}
           </article>
@@ -1342,166 +1156,77 @@ noticeList.innerHTML = newsItems.map(n => {
       }).join('');
     }
 
-    function toggleWriter() {
-      document.getElementById('writerPanel').classList.toggle('open');
-    }
-
-    function generateNoticeCode() {
-      const category = document.getElementById('nCat').value;
-      const date = document.getElementById('nDate').value || "2026";
-      const title = document.getElementById('nTitle').value.trim();
-      const body = document.getElementById('nBody').value.trim();
-      const imgsRaw = document.getElementById('nImgs').value.trim();
-      if (!title) { alert("제목을 입력해주세요."); return; }
-
-      const images = imgsRaw ? imgsRaw.split(',').map(s => s.trim()).filter(Boolean) : [];
-      const newObj = { category, date, title, body, images };
-      newsItems.unshift(newObj);
-      renderNotices();
-
-      document.getElementById('generatedCode').value = JSON.stringify(newObj, null, 2) + ",";
-    }
-
-    /* ================= PUBLICATIONS DATA (1 - 74) ================= */
-    const publications = [
-      { num: 74, year: 2026, authors: "G. Yu et al.", title: "Stretchable electronic skin for human–robot interaction using chitosan–glycerol substrate upcycled from exoskeletons of Tenebrio molitor larvae", journal: "Scientific Reports, 2026. (Accepted for publication)", badge: "Accepted" },
-      { num: 73, year: 2026, authors: "K. Eom and K. M. Byun*", title: "Advanced non-invasive brain neuromodulation: A comprehensive review of electric, magnetic, ultrasonic, and optical modalities", journal: "Biomedical Engineering Letters 16(5), 1095-1116, July 13, 2026." },
-      { num: 72, year: 2026, authors: "H. J. Kwon, H. Son, S. H. Choi*, and K. M. Byun*", title: "Synergistic combination of convective self-assembly and hollow core fiber for sensitive SERS detection of glucose molecules", journal: "Biomedical Optics Express 17(6), 3016-3025, June 1, 2026." },
-      { num: 71, year: 2026, authors: "M. C. R. Ebner, S.-W. Kim, G. Yu, E. Ackah, H.-W. Jeong, K. M. Byun*, Y.-S. Seok, and S. H. Choi*", title: "Design and fabrication of a chitosan-based diaphragm digital stethoscope for heart sound acquisition", journal: "Micromachines 17(5), 555, April 30, 2026." },
-      { num: 70, year: 2026, authors: "J. W. Ahn, G. Y. Yu, S.-W. Kim, Y.-S. Seok, K. M. Byun*, and S. H. Choi*", title: "A Cheonjiin layout mental speller: Developing a simple and cost-effective EEG-based brain–computer interface system", journal: "Sensors 26(7), 2265, April 7, 2026." },
-      { num: 69, year: 2025, authors: "W. Kim, W. J. Kim, H. Lee, G.-J. Lee, K. M. Byun, T. Joo, Y.-H. Kim*, S. W. Moon*, and S. Choi*", title: "Spontaneous formation of plasmonic nanoparticles by transition metal dischalcogenides for SERS biosensing with deep learning analysis", journal: "Sensors and Actuators B: Chemical 441, 138056, October 15, 2025." },
-      { num: 68, year: 2025, authors: "S. N. Paing, F. Zaman, J. Rehman, K. M. Byun, J. Cho, T. Q. Duong, and H. Shin*", title: "Counterfactual quantum protocols for dialogue, teleportation, and comparison", journal: "IEEE Transactions on Communications 73(2), 874-888, February 1, 2025." },
-      { num: 67, year: 2024, authors: "E. E. Nettey-Oppong, A. Ali*, J. Ahn, R. Muhammad, H. J. Lee, H.-W. Jeong, K. M. Byun*, and S. H. Choi*", title: "Development of a 3D printing-enabled cost-effective multimodal Raman probe with high signal-to-noise ratio Raman spectrum measurements", journal: "ACS Omega 9(42), 42822-42838, September 20, 2024.", badge: "Cover Image" },
-      { num: 66, year: 2024, authors: "H. J. Kwon, Y. J. Cho, K. M. Yuk, J. Lee, S. H. Choi*, and K. M. Byun*", title: "Development of nanogap-rich hybrid gold nanostructures by use of two non-lithographic deposition techniques for a sensitive and reliable SERS biosensor", journal: "Biomedical Engineering Letters 14(4), 859-866, May 29, 2024." },
-      { num: 65, year: 2023, authors: "R. Muhammad, K. T. Htun, E. E. Nettey-Oppong, A. Ali, D. K. Jeon, H. W. Jeong, K. M. Byun*, and S. H. Choi*", title: "Pulse oximetry imaging system using spatially uniform dual wavelength illumination", journal: "Sensors 23(7), 3723, April 4, 2023." },
-      { num: 64, year: 2023, authors: "E. Effah, E. E. Nettey-Oppong, A. Ali, K. M. Byun*, and S. H. Choi*", title: "Tunable metasurfaces based on mechanically deformable polymeric substrates", journal: "Photonics 10(2), 119, January 23, 2023." },
-      { num: 63, year: 2022, authors: "T. Kang, Y. Cho, K. M. Yuk, C. Y. Yu, S. H. Choi*, and K. M. Byun*", title: "Fabrication and characterization of novel silk fiber-optic SERS sensor with uniform assembly of gold nanoparticles", journal: "Sensors 22(22), 9012, November 21, 2022." },
-      { num: 62, year: 2022, authors: "A. Ali, E. E. Nettey-Oppong, E. Effah, C. Y. Yu, R. Muhammad, T. A. Soomro, K. M. Byun*, and S. H. Choi*", title: "Miniaturized Raman instruments for SERS-based point-of-care testing on respiratory viruses", journal: "Biosensors-Basel 12(8), 590, August 2, 2022." },
-      { num: 61, year: 2022, authors: "J. H. Choi, M. Choi, T. S. Ho, S. Kim, S. Choi, S. H. Choi*, and K. M. Byun*", title: "Biological SERS-active sensor platform based on flexible silk fibroin film and gold nanoislands", journal: "Optics Express 30(5), 7782-7792, February 28, 2022." },
-      { num: 60, year: 2021, authors: "J. H. Choi, M. Choi, T. Kang, T. S. Ho, S. H. Choi*, and K. M. Byun*", title: "Combination of porous silk fibroin substrate and gold nanocracks as a novel SERS platform for a high-sensitivity biosensor", journal: "Biosensors-Basel 11(11), 441, November 6, 2021." },
-      { num: 59, year: 2021, authors: "M. Choi, T. Kang, S. H. Choi, and K. M. Byun*", title: "Dual modal plasmonic substrates based on convective self-assembly technique for enhancement in SERS and LSPR detection", journal: "Optics Express 29(4), 6179-6187, February 15, 2021." },
-      { num: 58, year: 2020, authors: "M. Choi, S. Kim, S. H. Choi, H.-H. Park*, and K. M. Byun*", title: "Highly reliable SERS substrate based on plasmonic hybrid coupling between gold nanoislands and periodic nanopillar arrays", journal: "Optics Express 28(3), 3598-3606, February 1, 2020." },
-      { num: 57, year: 2019, authors: "S. H. Choi and K. M. Byun*", title: "Naturally occurring order-disorder duality in photonic structures of the Haliotis fulgens abalone shell", journal: "Optical Materials Express 9(5), 2206-2215, May 1, 2019." },
-      { num: 56, year: 2019, authors: "N.-H. Kim, M. Choi, T. W. Kim, W. Choi, S. Y. Park, and K. M. Byun*", title: "Sensitivity and stability enhancement of surface plasmon resonance biosensor based on a large-area Ag/MoS2 substrate", journal: "Sensors 19(8), 1894, April 21, 2019." },
-      { num: 55, year: 2018, authors: "K. Eom, K. M. Byun, S. B. Jun, S. J. Kim, and J. Lee*", title: "Theoretical study on gold nanorod-enhanced near-infrared neural stimulation", journal: "Biophysical Journal 115(8), 1481-1497, October 16, 2018." },
-      { num: 54, year: 2018, authors: "N.-H. Kim, S. Kim, M. Choi, H.-H. Park, N. H. Kim, S. Y. Park, K. M. Byun*, and S. Y. Lee*", title: "Combination of periodic hybrid nanopillar arrays and gold nanorods for improving detection performance of surface-enhanced Raman spectroscopy", journal: "Sensors and Actuators B: Chemical 258, 18-24, April 1, 2018." },
-      { num: 53, year: 2018, authors: "S. H. Choi, K. M. Byun, and Y. L. Kim*", title: "Lasing interactions disclose hidden modes of necklace states in the Anderson localized regime", journal: "ACS Photonics 5(3), 881-889, March 1, 2018." },
-      { num: 52, year: 2018, authors: "J. M. Kim, S. Kim, S. W. Hwang, C. Kim, D. H. Shin, J. H. Kim, C. W. Jang, S. S. Kang, E. Hwang, S.-H. Choi*, S. H. El-Gohary, and K. M. Byun", title: "Strong enhancement of emission efficiency in GaN light-emitting diodes by plasmon-coupled light amplification of graphene", journal: "Nanotechnology 29(5), 055201, February 2, 2018." },
-      { num: 51, year: 2017, authors: "S. Kim, S. H. Lee, S. Y. Min, K. M. Byun*, and S. Y. Lee*", title: "Dual modal cancer detection based on optical pH sensing and Raman spectroscopy", journal: "Journal of Biomedical Optics 22(10), 105002, October 12, 2017." },
-      { num: 50, year: 2017, authors: "K. Eom, S. Hwang, S. Yun, K. M. Byun*, S. B. Jun*, and S. J. Kim*", title: "Photothermal activation of astrocyte cells using localized surface plasmon resonance of gold nanorods", journal: "Journal of Biophotonics 10(4), 486-493, April 1, 2017." },
-      { num: 49, year: 2017, authors: "S. Kim, K. M. Byun*, and S. Y. Lee*", title: "Influence of water content on Raman spectroscopy characterization of skin sample", journal: "Biomedical Optics Express 8(2), 1130-1138, February 1, 2017." },
-      { num: 48, year: 2016, authors: "S. H. El-Gohary, M. Choi, Y. L. Kim*, and K. M. Byun*", title: "Dispersion curve engineering of TiO2/silver hybrid substrates for enhanced surface plasmon resonance detection", journal: "Sensors 16(9), 1442, September 7, 2016." },
-      { num: 47, year: 2016, authors: "S. H. El-Gohary, S. Eom, S. Y. Lee, and K. M. Byun*", title: "Dispersion curve-based sensitivity engineering for enhanced surface plasmon resonance detection", journal: "Optics Communications 370(1), 299-305, July 1, 2016." },
-      { num: 46, year: 2016, authors: "K. Eom, C. Im, S. Hwang, S. Eom, T.-S. Kim, H. S. Jeong, K. H. Kim, K. M. Byun*, S. B. Jun*, and S. J. Kim*", title: "Synergistic combination of near-infrared irradiation and targeted gold nanoheaters for enhanced photothermal neural stimulation", journal: "Biomedical Optics Express 7(3), 1614-1625, March 1, 2016." },
-      { num: 45, year: 2015, authors: "N.-H. Kim, H. T. Le, Y. Yang, K. M. Byun*, and T. W. Kim*", title: "Modified DNA aptamer immobilization via Cu(I)-stabilizing ligand-assisted azide-alkyne cycloaddition for surface plasmon resonance measurement", journal: "Bulletin of the Korean Chemical Society 36(11), 2601-2608, November 1, 2015." },
-      { num: 44, year: 2015, authors: "M. Choi, N.-H. Kim, S. Eom, T. W. Kim, K. M. Byun*, and H.-H. Park*", title: "Fabrication and characterization of gold nanocrown arrays on a gold film for a high-sensitivity surface plasmon resonance biosensor", journal: "Thin Solid Films 587, 43-46, July 31, 2015." },
-      { num: 43, year: 2015, authors: "N.-H. Kim, M. Choi, J. W. Leem, J. S. Yu, T. W. Kim, T. S. Kim, and K. M. Byun*", title: "Improved biomolecular detection based on a plasmonic nanoporous gold film fabricated by oblique angle deposition", journal: "Optics Express 23(14), 18777-18785, July 10, 2015." },
-      { num: 42, year: 2015, authors: "S. H. Choi, K. M. Byun, and Y. L. Kim*", title: "Excitation of multiple resonances in 1D Anderson localized systems for efficient light amplification", journal: "Optics Letters 40(5), 847-850, March 1, 2015." },
-      { num: 41, year: 2015, authors: "H. S. Jung, J. Han, J.-H. Lee, J. H. Lee, J. M. Choi, H.-S. Kweon, J. H. Han, J.-H. Kim*, K. M. Byun*, J. H. Jung*, C. Kang*, and J. S. Kim*", title: "Enhanced NIR radiation-triggered hyperthermia by mitochondrial targeting", journal: "Journal of the American Chemical Society 137(8), 3017-3023, February 6, 2015." },
-      { num: 40, year: 2014, authors: "K. Eom, J. Kim, J. M. Choi, T. Kang, J. W. Chang, K. M. Byun*, S. B. Jun*, and S. J. Kim*", title: "Enhanced infrared neural stimulation using localized surface plasmon resonance of gold nanorods", journal: "Small 10(19), 3853-3857, October 15, 2014.", badge: "Frontispiece" },
-      { num: 39, year: 2014, authors: "S. H. El-Gohary, M. K. Metwally, S. Eom, S. H. Jeon, K. M. Byun*, and T.-S. Kim*", title: "Design study on photoacoustic probe to detect prostate cancer using 3D Monte Carlo simulation and finite element method", journal: "Biomedical Engineering Letters 4(3), 250-257, September 30, 2014." },
-      { num: 38, year: 2014, authors: "N.-H. Kim, K. M. Byun*, S. Hwang, Y. Lee, and S. B. Jun", title: "In vitro biocompatibility test of multi-layered plasmonic substrates with flint glasses and adhesion films", journal: "Journal of the Optical Society of Korea 18(2), 174-179, April 25, 2014." },
-      { num: 37, year: 2014, authors: "S. H. El-Gohary, J. M. Choi, N.-H. Kim, and K. M. Byun*", title: "Plasmonic metal-dielectric-metal stack structure with subwavelength metallic gratings for improving sensor sensitivity and signal quality", journal: "Applied Optics 53(10), 2152-2157, April 1, 2014." },
-      { num: 36, year: 2014, authors: "J. M. Choi, K. Eom, S. Hwang, Y. Lee, S. B. Jun, K. M. Byun*, and S. J. Kim", title: "Multi-color fluorescence imaging based on plasmonic wavelength selection and double illumination by white light", journal: "Optics Express 22(5), 5977-5985, March 10, 2014." },
-      { num: 35, year: 2014, authors: "N.-H. Kim, K. M. Byun*, S. H. Choi, and Y. L. Kim", title: "Improvement of plasmonic field-matter interaction by subwavelength dielectric gratings", journal: "Applied Physics B: Lasers and Optics 114(3), 347-353, March 1, 2014." },
-      { num: 34, year: 2014, authors: "N.-H. Kim, T. W. Kim, K. M. Byun*, J. W. Leem, and J. S. Yu", title: "How to avoid a negative shift in reflection-type surface plasmon resonance biosensors with metallic nanostructures", journal: "Optics Express 22(4), 4723-4730, February 24, 2014." },
-      { num: 33, year: 2013, authors: "H. S. Han, H. J. Jeon, S. Y. Hwang, Y. N. Lee, K. M. Byun, S. B. Jun, and T.-S. Kim*", title: "Modulation in action potentials of rat hippocampal neurons measured on multi-channel electrodes during ultrasound stimulation", journal: "Journal of Biomedical Engineering Research 34(4), 177-181, December 1, 2013." },
-      { num: 32, year: 2013, authors: "S. H. El-Gohary, N.-H. Kim, and K. M. Byun*", title: "Optical determination of thick graphene layer number based on surface plasmon resonance", journal: "Journal of Nanophotonics 7(1), 073799, August 30, 2013." },
-      { num: 31, year: 2013, authors: "W. K. Jung, N.-H. Kim, and K. M. Byun*", title: "Development of a large-area plasmonic sensor substrate with dielectric subwavelength gratings using nanoimprint lithography", journal: "Journal of Biomedical Nanotechnology 9(4), 685-688, April 1, 2013." },
-      { num: 30, year: 2012, authors: "R. A. Awang, S. H. El-Gohary, N.-H. Kim, and K. M. Byun*", title: "Enhancement of field-analyte interaction at metallic nanogap arrays for sensitive localized surface plasmon resonance detection", journal: "Applied Optics 51(31), 7437-7442, November 1, 2012." },
-      { num: 29, year: 2012, authors: "J.-C. Song, W. K. Jung, N.-H. Kim, and K. M. Byun*", title: "Plasmonic wavelength splitter based on a large-area dielectric grating and white light illumination", journal: "Optics Letters 37(18), 3915-3917, September 15, 2012." },
-      { num: 28, year: 2012, authors: "W. K. Jung, N.-H. Kim, and K. M. Byun*", title: "Numerical study on an application of subwavelength dielectric gratings for high-sensitivity plasmonic detection", journal: "Applied Optics 51(20), 4722-4729, July 10, 2012." },
-      { num: 27, year: 2012, authors: "K. M. Byun, N.-H. Kim, J. W. Leem, and J. S. Yu*", title: "Enhanced surface plasmon resonance detection using porous ITO-gold hybrid substrates", journal: "Applied Physics B: Lasers and Optics 107(3), 803-808, June 1, 2012." },
-      { num: 26, year: 2011, authors: "N.-H. Kim, W. K. Jung, and K. M. Byun*", title: "Correlation analysis between plasmon field distribution and sensitivity enhancement in reflection- and transmission-type localized surface plasmon resonance biosensors", journal: "Applied Optics 50(25), 4982-4988, September 1, 2011." },
-      { num: 25, year: 2011, authors: "W. K. Jung and K. M. Byun*", title: "Fabrication of nanoscale plasmonic structures and their applications to photonic devices and biosensors", journal: "Biomedical Engineering Letters 1(3), 153-162, August 31, 2011." },
-      { num: 24, year: 2011, authors: "K. M. Byun, N.-H. Kim, Y. H. Ko, and J. S. Yu*", title: "Enhanced surface plasmon resonance detection of DNA hybridization based on ZnO nanorod arrays", journal: "Sensors and Actuators B: Chemical 155(1), 375-379, July 5, 2011." },
-      { num: 23, year: 2011, authors: "S. M. Jang, D. Kim, S. H. Choi, K. M. Byun*, and S. J. Kim", title: "Enhancement of localized surface plasmon resonance detection by incorporating metal-dielectric double-layered subwavelength gratings", journal: "Applied Optics 50(18), 2846-2854, June 20, 2011.", badge: "Top Downloaded" },
-      { num: 22, year: 2011, authors: "S. A. Kim, S. Das, H. Lee, J. Kim, Y. M. Song, I. S. Kim, K. M. Byun, S. J. Hwang, and S. J. Kim*", title: "Preliminary approach of real-time monitoring in vitro matrix mineralization based on surface plasmon resonance detection", journal: "Biotechnology and Bioengineering 108(6), 1473-1478, June 1, 2011." },
-      { num: 21, year: 2011, authors: "K. S. Lee, M. Lee, K. M. Byun*, and I. S. Lee*", title: "Surface plasmon resonance biosensing based on target-responsive mobility switch of magnetic nanoparticles under magnetic fields", journal: "Journal of Materials Chemistry 21(13), 5156-5162, March 1, 2011." },
-      { num: 20, year: 2011, authors: "S. H. Choi, Y. L. Kim, and K. M. Byun*", title: "Graphene-on-silver substrates for sensitive surface plasmon resonance imaging biosensors", journal: "Optics Express 19(2), 458-466, January 17, 2011.", badge: "Top Downloaded" },
-      { num: 19, year: 2010, authors: "S. H. Choi and K. M. Byun*", title: "Investigation on an application of silver substrates for sensitive surface plasmon resonance imaging detection", journal: "Journal of the Optical Society of America A 27(10), 2229-2236, October 1, 2010." },
-      { num: 18, year: 2010, authors: "S. A. Kim, K. M. Byun*, K. Kim, S. M. Jang, K. Ma, Y. Oh, D. Kim, S. G. Kim, M. L. Shuler, and S. J. Kim", title: "Surface-enhanced localized surface plasmon resonance biosensing of avian influenza DNA hybridization using subwavelength metallic nanoarrays", journal: "Nanotechnology 21(35), 355503, August 9, 2010." },
-      { num: 17, year: 2010, authors: "S. H. Choi, S. J. Kim, and K. M. Byun*", title: "Characteristics of light emission from surface plasmons based on rectangular silver gratings", journal: "Optics Communications 283(14), 2961-2966, July 15, 2010." },
-      { num: 16, year: 2010, authors: "K. M. Byun*", title: "Development of nanostructured plasmonic substrates for enhanced optical biosensing", journal: "Journal of the Optical Society of Korea 14(2), 65-76, June, 2010.", badge: "Invited Paper" },
-      { num: 15, year: 2009, authors: "S. A. Kim, S. J. Kim*, S. H. Lee, T. H. Park, K. M. Byun, S. G. Kim, and M. L. Shuler", title: "Detection of avian influenza-DNA hybridization using wavelength-scanning surface plasmon resonance biosensor", journal: "Journal of the Optical Society of Korea 13(3), 392-397, September 1, 2009." },
-      { num: 14, year: 2009, authors: "K. Kim, D. J. Kim, S. Moon, D. Kim*, and K. M. Byun", title: "Localized surface plasmon resonance detection of layered biointeractions on metallic subwavelength nanogratings", journal: "Nanotechnology 20(31), 315501, August 5, 2009." },
-      { num: 13, year: 2009, authors: "S. H. Choi, S. J. Kim, and K. M. Byun*", title: "Design study for transmission improvement of resonant surface plasmons using dielectric diffraction gratings", journal: "Applied Optics 48(15), 2924-2931, May 15, 2009." },
-      { num: 12, year: 2009, authors: "K. M. Byun, S. M. Jang, S. J. Kim, and D. Kim*", title: "Effect of target localization on the sensitivity of a localized surface plasmon resonance biosensor based on subwavelength nanostructures", journal: "Journal of the Optical Society of America A 26(4), 1027-1034, April 1, 2009." },
-      { num: 11, year: 2008, authors: "K. M. Byun, S. J. Yoon, and D. Kim*", title: "Effect of surface roughness on the extinction-based localized surface plasmon resonance biosensors", journal: "Applied Optics 47(31), 5886-5892, November 1, 2008." },
-      { num: 10, year: 2008, authors: "K. M. Byun, M. L. Shuler, S. J. Kim, S. J. Yoon, and D. Kim*", title: "Sensitivity enhancement of surface plasmon resonance imaging using periodic metallic nanowires", journal: "Journal of Lightwave Technology 26(11), 1472-1478, June 1, 2008." },
-      { num: 9, year: 2008, authors: "Research Highlights", title: "Plasmonic sensing: What a nerve", journal: "Nature Photonics 2, 264, May 15, 2008.", badge: "Nature Photonics Highlight" },
-      { num: 8, year: 2008, authors: "S. A. Kim, K. M. Byun, J. Lee, J. H. Kim, D.-G. A. Kim, H. Bacc, M. L. Shuler, and S. J. Kim*", title: "Optical measurement of neural activity using surface plasmon resonance", journal: "Optics Letters 33(9), 914-916, May 1, 2008." },
-      { num: 7, year: 2007, authors: "K. M. Byun, S. J. Kim, and D. Kim*", title: "Grating-coupled transmission type surface plasmon resonance sensors based on dielectric and metallic gratings", journal: "Applied Optics 46(23), 5703-5708, August 8, 2007." },
-      { num: 6, year: 2007, authors: "K. M. Byun, S. J. Yoon, D. Kim*, and S. J. Kim", title: "Experimental study of sensitivity enhancement in surface plasmon resonance biosensors by use of periodic metallic nanowires", journal: "Optics Letters 32(13), 1902-1904, July 1, 2007." },
-      { num: 5, year: 2007, authors: "S. K. An, S. Park, S. B. Jun, C. J. Lee, K. M. Byun, J. H. Sung, B. S. Wilson, S. J. Rebscher, S. H. Oh, and S. J. Kim*", title: "Design for a simplified cochlear implant system", journal: "IEEE Transactions on Biomedical Engineering 54(6), 973-982, June 1, 2007." },
-      { num: 4, year: 2007, authors: "K. M. Byun, S. J. Yoon, D. Kim*, and S. J. Kim", title: "Sensitivity analysis of a nanowire-based surface plasmon resonance biosensor in the presence of surface roughness", journal: "Journal of the Optical Society of America A 24(2), 522-529, February 1, 2007." },
-      { num: 3, year: 2006, authors: "K. M. Byun, D. Kim*, and S. J. Kim", title: "Investigation of the profile effect on the sensitivity enhancement of nanowire-mediated localized surface plasmon resonance biosensors", journal: "Sensors and Actuators B: Chemical 117(2), 401-407, October 12, 2006." },
-      { num: 2, year: 2006, authors: "K. M. Byun, S. J. Kim, and D. Kim*", title: "Profile effect on the feasibility of extinction based localized surface plasmon resonance biosensors with metallic nanowires", journal: "Applied Optics 45(14), 3382-3389, May 3, 2006." },
-      { num: 1, year: 2005, authors: "K. M. Byun, S. J. Kim, and D. Kim*", title: "Design study of highly sensitive nanowire-enhanced surface plasmon resonance biosensors using rigorous coupled wave analysis", journal: "Optics Express 13(10), 3737-3742, May 16, 2005." }
-    ];
-
-    const pubListEl = document.getElementById('pubList');
-    const pubCountEl = document.getElementById('pubCount');
-    const pubSearchEl = document.getElementById('pubSearch');
-    const filterBtns = document.querySelectorAll('.filter-btn');
-
-    let currentFilter = 'all';
-    let currentQuery = '';
-
-    function renderPublications() {
-      const filtered = publications.filter(p => {
-        const matchesFilter =
-          currentFilter === 'all' ||
-          (currentFilter === '2026' && p.year === 2026) ||
-          (currentFilter === '2023-2025' && p.year >= 2023 && p.year <= 2025) ||
-          (currentFilter === '2018-2022' && p.year >= 2018 && p.year <= 2022) ||
-          (currentFilter === '2005-2017' && p.year <= 2017);
-
-        const q = currentQuery.toLowerCase();
-        const matchesQuery =
-          !q ||
-          p.title.toLowerCase().includes(q) ||
-          p.authors.toLowerCase().includes(q) ||
-          p.journal.toLowerCase().includes(q) ||
-          String(p.year).includes(q);
-
-        return matchesFilter && matchesQuery;
-      });
-
-      pubCountEl.textContent = `Showing ${filtered.length} of ${publications.length} publications`;
-      pubListEl.innerHTML = filtered.map(p => `
-        <div class="pub-item">
-          <div class="pub-top">
-            <span class="pub-num">#${p.num}</span>
-            <span class="pub-year-tag">${p.year}</span>
-            ${p.badge ? `<span class="pub-highlight">${p.badge}</span>` : ''}
-          </div>
-          <div class="pub-title">"${p.title}"</div>
-          <div class="pub-authors">${p.authors}</div>
-          <div class="pub-journal">${p.journal}</div>
-        </div>
+    // Render Publications
+    function initYearFilters() {
+      const years = ['ALL', ...new Set(publications.map(p => p.year))];
+      const container = document.getElementById('yearFilters');
+      container.innerHTML = years.map(y => `
+        <button class="year-btn ${y === selectedYear ? 'active' : ''}" onclick="filterYear('${y}')">
+          ${y === 'ALL' ? 'All (' + publications.length + ')' : y}
+        </button>
       `).join('');
     }
 
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentFilter = btn.dataset.filter;
-        renderPublications();
-      });
-    });
-
-    pubSearchEl.addEventListener('input', (e) => {
-      currentQuery = e.target.value;
+    function filterYear(year) {
+      selectedYear = year;
+      initYearFilters();
       renderPublications();
-    });
+    }
 
-    /* Initial Render */
-    renderMembers();
-    renderNotices();
-    renderPublications();
+    function renderPublications() {
+      const query = document.getElementById('pubSearch').value.toLowerCase();
+      const filtered = publications.filter(p => {
+        const matchYear = selectedYear === 'ALL' || String(p.year) === String(selectedYear);
+        const matchText = p.title.toLowerCase().includes(query) ||
+                          p.authors.toLowerCase().includes(query) ||
+                          p.journal.toLowerCase().includes(query);
+        return matchYear && matchText;
+      });
+
+      const list = document.getElementById('pubList');
+      if (filtered.length === 0) {
+        list.innerHTML = '<li style="padding:2rem; text-align:center; color:#6b7280;">No matching publications found.</li>';
+        return;
+      }
+
+      list.innerHTML = filtered.map(p => `
+        <li class="pub-item">
+          <div class="pub-num">[${p.num}]</div>
+          <div>
+            <div class="pub-title">${p.title}</div>
+            <div class="pub-authors">${p.authors}</div>
+            <div class="pub-journal">
+              ${p.journal}
+              ${p.badge ? `<span class="pub-badge">${p.badge}</span>` : ''}
+            </div>
+          </div>
+        </li>
+      `).join('');
+    }
+
+    // Real-time Load from data/*.json
+    async function loadAllData() {
+      try {
+        const [mRes, aRes, nRes, pRes] = await Promise.all([
+          fetch('data/members.json', { cache: 'no-store' }),
+          fetch('data/alumni.json', { cache: 'no-store' }),
+          fetch('data/news.json', { cache: 'no-store' }),
+          fetch('data/publications.json', { cache: 'no-store' })
+        ]);
+        if (mRes.ok) currentMembers = (await mRes.json()).items || [];
+        if (aRes.ok) alumniData = await aRes.json();
+        if (nRes.ok) newsItems = (await nRes.json()).items || [];
+        if (pRes.ok) publications = (await pRes.json()).items || [];
+      } catch (e) {
+        console.error('데이터 로드 중 오류 발생:', e);
+      }
+      renderMembers();
+      renderNotices();
+      initYearFilters();
+      renderPublications();
+    }
+
+    loadAllData();
   </script>
-
 </body>
 </html>
