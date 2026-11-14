@@ -1,98 +1,31 @@
-backend:
-  name: github
-  repo: JeongHyeonBaeee/bplab.github.io
-  branch: main
-
-media_folder: "images/uploads"
-public_folder: "images/uploads"
-
-collections:
-  # 1. News (학회 / 수상 / 포스터)
-  - name: "news"
-    label: "News (뉴스 & 포스터)"
-    files:
-      - label: "News 목록 관리"
-        name: "news_list"
-        file: "data/news.json"
-        fields:
-          - label: "뉴스 목록"
-            name: "items"
-            widget: "list"
-            summary: "{{fields.date}} | {{fields.title}}"
-            fields:
-              - { label: "카테고리", name: "category", widget: "select", options: ["Conference", "Award", "Poster", "Notice"], default: "Conference" }
-              - { label: "날짜 (예: 2026. 11. 04. - 2026. 11. 07.)", name: "date", widget: "string" }
-              - { label: "제목", name: "title", widget: "string" }
-              - { label: "본문 내용", name: "body", widget: "text" }
-              - label: "첨부 사진 / 포스터"
-                name: "images"
-                widget: "list"
-                required: false
-                field: { label: "이미지 파일", name: "image", widget: "image" }
-
-  # 2. Members & Alumni (현재 구성원 + 졸업생 통합 관리)
-  - name: "members"
-    label: "Members & Alumni (구성원 및 졸업생)"
-    files:
-      - label: "현재 구성원 관리 (Current Members)"
-        name: "member_list"
-        file: "data/members.json"
-        fields:
-          - label: "현재 구성원 목록"
-            name: "items"
-            widget: "list"
-            summary: "{{fields.role}} - {{fields.name}} ({{fields.enName}})"
-            fields:
-              - { label: "과정", name: "role", widget: "select", options: ["Ph.D. Student", "Integrated M.S./Ph.D. Student", "M.S. Student", "Undergraduate Student"] }
-              - { label: "한글 이름 (외국인은 영문)", name: "name", widget: "string" }
-              - { label: "영문 이름", name: "enName", widget: "string" }
-              - { label: "소속 학과 (영문)", name: "dept", widget: "string", default: "Biomedical Engineering" }
-              - { label: "이메일", name: "email", widget: "string" }
-              - { label: "프로필 사진", name: "photo", widget: "image", required: false }
-              - { label: "사진 없을 때 표시할 글자 (예: 홍)", name: "fallback", widget: "string" }
-
-      - label: "졸업생 및 수료생 관리 (Alumni)"
-        name: "alumni_list"
-        file: "data/alumni.json"
-        fields:
-          - label: "Ph.D. Alumni (박사 졸업생)"
-            name: "phd"
-            widget: "list"
-            summary: "{{fields.name}} {{fields.year}}"
-            fields:
-              - { label: "이름", name: "name", widget: "string" }
-              - { label: "졸업연도 및 비고 (예: ('23)*)", name: "year", widget: "string" }
-          - label: "M.S. Alumni (석사 졸업생)"
-            name: "ms"
-            widget: "list"
-            summary: "{{fields.name}} {{fields.year}}"
-            fields:
-              - { label: "이름", name: "name", widget: "string" }
-              - { label: "졸업연도 및 비고 (예: ('25))", name: "year", widget: "string" }
-          - label: "Undergraduate Student (학부연구생 수료)"
-            name: "undergrad"
-            widget: "list"
-            summary: "{{fields.name}} {{fields.info}}"
-            fields:
-              - { label: "이름", name: "name", widget: "string" }
-              - { label: "소속 및 기간 (예: (Department of Biomedical Engineering, KyungHee University, 2026.03.-2026.08.))", name: "info", widget: "string" }
-
-  # 3. Publications (논문 목록)
-  - name: "publications"
-    label: "Publications (논문)"
-    files:
-      - label: "논문 목록 관리"
-        name: "pub_list"
-        file: "data/publications.json"
-        fields:
-          - label: "논문 목록 (최신 논문을 맨 위에 추가하세요)"
-            name: "items"
-            widget: "list"
-            summary: "#{{fields.num}} ({{fields.year}}) {{fields.title}}"
-            fields:
-              - { label: "논문 번호", name: "num", widget: "number", value_type: "int" }
-              - { label: "출판 연도", name: "year", widget: "number", value_type: "int" }
-              - { label: "저자 목록", name: "authors", widget: "string" }
-              - { label: "논문 제목", name: "title", widget: "string" }
-              - { label: "저널명 및 권/호/날짜", name: "journal", widget: "string" }
-              - { label: "강조 배지 (선택: Accepted, Cover Image 등)", name: "badge", widget: "string", required: false }
+{
+  "phd": [
+    { "name": "정창진", "year": "('23)*" },
+    { "name": "Rehab Hassan", "year": "('20)*" },
+    { "name": "최문식", "year": "('20)" },
+    { "name": "Sherif El-Gohary", "year": "('16)" },
+    { "name": "김낙현", "year": "('15)" }
+  ],
+  "ms": [
+    { "name": "육경민", "year": "('25)" },
+    { "name": "장우철", "year": "('24)*" },
+    { "name": "권혁주", "year": "('24)" },
+    { "name": "조용준", "year": "('24)" },
+    { "name": "강태영", "year": "('23)" },
+    { "name": "지영상", "year": "('23)*" },
+    { "name": "신동민", "year": "('21)" },
+    { "name": "최지현", "year": "('21)" },
+    { "name": "박재원", "year": "('19)" },
+    { "name": "김선아", "year": "('17)" },
+    { "name": "엄수현", "year": "('16)" },
+    { "name": "황시영", "year": "('15)" },
+    { "name": "이영나", "year": "('14)" },
+    { "name": "최종목", "year": "('14)" },
+    { "name": "정우경", "year": "('13)" },
+    { "name": "송재철", "year": "('12)" },
+    { "name": "장수민", "year": "('11)" }
+  ],
+  "undergrad": [
+    { "name": "백혜원", "info": "(Department of Biomedical Engineering, KyungHee University, Mar 2026 - Aug 2026)" }
+  ]
+}
