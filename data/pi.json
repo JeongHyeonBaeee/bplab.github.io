@@ -1,0 +1,20 @@
+{
+  "photo": "prof-byun.jpg",
+  "name": "변 경 민 (Kyung Min Byun, Ph.D.)",
+  "role": "Professor, Department of Biomedical Engineering, Kyung Hee University",
+  "office": "Room 709, College of Electronics and Information",
+  "tel": "+82-31-201-3769",
+  "email": "kmbyun@khu.ac.kr",
+  "education": [
+    { "degree": "Ph.D.", "detail": "in Electrical Engineering, Seoul National University (2006)" },
+    { "degree": "M.S.", "detail": "in Electrical Engineering, Seoul National University (2002)" },
+    { "degree": "B.S.", "detail": "in Electrical Engineering, Seoul National University (2000)" }
+  ],
+  "career": [
+    { "period": "2018.03 – Present:", "detail": "Professor, Dept. of Biomedical Engineering, Kyung Hee Univ." },
+    { "period": "2014.03 – 2015.02:", "detail": "Visiting Scholar, Dept. of Nanoengineering, UC San Diego" },
+    { "period": "2012.03 – 2018.02:", "detail": "Associate Professor, Kyung Hee Univ." },
+    { "period": "2008.03 – 2012.02:", "detail": "Assistant Professor, Kyung Hee Univ." },
+    { "period": "2007.03 – 2008.02:", "detail": "Post-doc, Dept. of Biomedical Engineering, Cornell Univ." }
+  ]
+}
